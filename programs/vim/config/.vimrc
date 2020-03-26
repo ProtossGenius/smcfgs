@@ -1,6 +1,7 @@
 set nocompatible
 
 filetype off
+syntax enable
 set ts=4
 set sw=4
 set rtp+=~/.vim/bundle/Vundle.vim

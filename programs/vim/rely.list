@@ -1,2 +1,3 @@
 data/programs
 libs/ncurses-devel
+programs/python3
