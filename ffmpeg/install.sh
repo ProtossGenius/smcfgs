@@ -1,4 +1,4 @@
-cd $sm_programs https://gitee.com/ProtossGenius/FFmpeg.git
+cd $sm_programs && git clone  https://gitee.com/ProtossGenius/FFmpeg.git
 cd FFmpeg && ./configure --enable-shared --prefix=/xxx/ffmpeg --enable-libmp3lame
 make 
 make install

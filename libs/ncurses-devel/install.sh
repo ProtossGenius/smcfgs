@@ -1,0 +1,1 @@
+sminstall ncurses-devel
