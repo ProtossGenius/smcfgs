@@ -43,7 +43,7 @@ func installOne(dir *DirCfg) bool {
 }
 
 func updateOne(dir *DirCfg) {
-	fmt.Println("==== installing ... ", dir.CmpPath())
+	fmt.Println("==== updateing ... ", dir.CmpPath())
 	err := smn_exec.EasyDirExec(dir.CmpPath(), "git", "pull")
 	checkerr(err)
 }
@@ -105,5 +105,4 @@ func main() {
 	smn_flag.RegisterBool("update", &update, "if update all response", DoUpdate)
 	flag.Parse()
 	smn_flag.Parse(flag.Args(), ed)
-
 }

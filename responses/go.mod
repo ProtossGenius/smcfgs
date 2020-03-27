@@ -8,5 +8,5 @@ require (
 )
 
 replace github.com/ProtossGenius/SureMoonNet => /data/workspace/go/src/github.com/ProtossGenius/SureMoonNet
- 
+
 replace github.com/ProtossGenius/smntools => /data/workspace/go/src/github.com/ProtossGenius/smntools
