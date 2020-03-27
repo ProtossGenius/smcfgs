@@ -1,1 +1,1 @@
-cd /data/programs && cd -
+cd /data/programs && pwd

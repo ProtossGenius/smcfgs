@@ -1,1 +1,1 @@
-cd /data && cd -
+cd /data && pwd

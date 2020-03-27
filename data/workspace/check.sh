@@ -1,1 +1,1 @@
-cd /data/workspace && cd -
+cd /data/workspace && pwd 
