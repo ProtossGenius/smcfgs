@@ -1,3 +1,4 @@
-data/programs
-libs/ncurses-devel
+programs/gcc
+programs/cmake
+libs/ncurses
 programs/python3

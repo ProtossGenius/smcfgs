@@ -1,0 +1,82 @@
+dealing funcs ....  install
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: centos.mirror.constant.com
+ * extras: mirror.atlanticmetro.net
+ * updates: mirror.fileplanet.com
+Package cmake-2.8.12.2-2.el7.x86_64 already installed and latest version
+Nothing to do
+configure: loading cache auto/config.cache
+checking whether make sets $(MAKE)... yes
+checking for gcc... no
+checking for cc... no
+checking for cl.exe... no
+rm -f auto/config.cache
+if test "X" != "Xclean" \
+	-a "X" != "Xdistclean" \
+	-a "X" != "Xautoconf" \
+	-a "X" != "Xreconfig"; then \
+    GUI_INC_LOC="" GUI_LIB_LOC="" \
+	CC="" CPPFLAGS="" CFLAGS="" \
+	LDFLAGS=""  srcdir="." \
+	./configure    \
+	   \
+	   \
+	   \
+	   \
+	  \
+	  \
+	   \
+	  \
+	    \
+	   \
+	  \
+	  \
+	 ; \
+fi
+configure: creating cache auto/config.cache
+checking whether make sets $(MAKE)... yes
+checking for gcc... no
+checking for cc... no
+checking for cl.exe... no
+dealing funcs ....  install
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: centos.mirror.constant.com
+ * extras: mirror.atlanticmetro.net
+ * updates: mirror.fileplanet.com
+Package cmake-2.8.12.2-2.el7.x86_64 already installed and latest version
+Nothing to do
+configure: loading cache auto/config.cache
+checking whether make sets $(MAKE)... yes
+checking for gcc... no
+checking for cc... no
+checking for cl.exe... no
+rm -f auto/config.cache
+if test "X" != "Xclean" \
+	-a "X" != "Xdistclean" \
+	-a "X" != "Xautoconf" \
+	-a "X" != "Xreconfig"; then \
+    GUI_INC_LOC="" GUI_LIB_LOC="" \
+	CC="" CPPFLAGS="" CFLAGS="" \
+	LDFLAGS=""  srcdir="." \
+	./configure    \
+	   \
+	   \
+	   \
+	   \
+	  \
+	  \
+	   \
+	  \
+	    \
+	   \
+	  \
+	  \
+	 ; \
+fi
+configure: creating cache auto/config.cache
+checking whether make sets $(MAKE)... yes
+checking for gcc... no
+checking for cc... no
+checking for cl.exe... no
