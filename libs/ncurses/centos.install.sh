@@ -1,1 +1,1 @@
-sminstall ncurses-devel
+yum install -y ncurses-devel
