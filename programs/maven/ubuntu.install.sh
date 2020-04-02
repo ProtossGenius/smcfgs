@@ -1,2 +1,2 @@
-yum -y install maven
+apt-get install -y maven
 cp ./settings.xml ~/.m2/settings.xml
