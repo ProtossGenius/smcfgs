@@ -23,6 +23,30 @@ imap <F6> <C-x><C-o>
 nnoremap <F5>   <Esc>:w<CR>:!make 
 nnoremap <F8>   <Esc>:w<CR>:!make qrun<CR>
 
+" ale-setting {{{
+" "自定义error和warning图标
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_lint_delay = 500
+let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
+ let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+"
+" "普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
+ nmap sp <Plug>(ale_previous_wrap)
+ nmap sn <Plug>(ale_next_wrap)
+" "<Leader>s触发/关闭语法检查
+ nmap <Leader>s :ALEToggle<CR>
+" "<Leader>d查看错误或警告的详细信息
+ nmap <Leader>d :ALEDetail<CR>
+" "使用clang对c和c++进行语法检查，对python使用pylint进行语法检查
+let g:ale_linters = {
+			\   'c++': ['clang'],
+			\   'c': ['clang'],
+			\   'python': ['pylint'],
+			\	'go':['golint', 'go'],
+			\}
+" " }}}}
+
+
 let g:ycm_global_ycm_extra_conf='~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
 let g:UltiSnipsExpandTrigger="<c-e>"
@@ -39,21 +63,6 @@ let g:ycm_key_invoke_completion = '<c-z>'
 set completeopt=menu,menuone
 set number
 "noremap <c-z> <NOP>
-"about Ale
-let g:ale_linters_explicit = 1
-let g:ale_completion_delay = 500
-let g:ale_echo_delay = 20
-let g:ale_lint_delay = 500
-let g:ale_echo_msg_format = '[%linter%] %code: %%s'
-let g:ale_lint_on_text_changed = 'normal'
-let g:ale_lint_on_insert_leave = 1
-let g:airline#extensions#ale#enabled = 1
-
-let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
-let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
-let g:ale_c_cppcheck_options = ''
-let g:ale_cpp_cppcheck_options = ''
-let g:ale_sign_error = "\ue009\ue009"
 
 let g:ycm_semantic_triggers =  {
             \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
