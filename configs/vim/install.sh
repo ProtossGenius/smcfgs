@@ -1,8 +1,7 @@
 cp ~/.smcfg/programs/vim/config/.vimrc ~/
-mkdir ~/.vim
-mkdir ~/.vim/bundle
-cd ~/.vim/bundle && git clone https://github.com/gmarik/Vundle.vim
-vim +PluginInstall <~/.smcfg/programs/vim/config/vimexit 
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim +PlugInstall <~/.smcfg/programs/vim/config/vimexit 
 cd ~/.vim/bundle/YouCompleteMe 
 git submodule update --init --recursive 
 ./install.py --gocode-completer  --clang-completer
