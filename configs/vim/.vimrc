@@ -33,7 +33,8 @@ nnoremap <F8>   <Esc>:w<CR>:!make qrun<CR>
 " ale-setting {{{
 " "自定义error和warning图标
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_lint_delay = 500
+let g:ale_lint_on_text_changed = 'insert'
+let g:ale_lint_on_insert_leave = 1
 let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
  let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
 "
@@ -49,6 +50,7 @@ let g:ale_linters = {
 			\   'c++': ['clang'],
 			\   'c': ['clang'],
 			\   'python': ['pylint'],
+			\	'go':[ 'golint', 'go vet', 'go build', 'golangci-lint'],
 			\}
 " " }}}}
 
