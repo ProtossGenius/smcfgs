@@ -4,7 +4,7 @@ syntax enable
 set ts=4
 set sw=4
 set backspace=2
-call plug#begin('~/.vim/bundle')
+call plug#begin('~/.vim/pluged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/vim-easy-align'
@@ -45,7 +45,7 @@ let g:ale_linters = {
 			\}
 " " }}}}
 
-let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf='~/.vim/pluged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
 let g:UltiSnipsExpandTrigger="<c-e>"
 let g:UltiSnipsListSnippets="<C-i>"
