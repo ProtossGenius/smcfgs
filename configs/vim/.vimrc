@@ -3,9 +3,8 @@ filetype off
 syntax enable
 set ts=4
 set sw=4
-set rtp+=~/.vim/bundle/Vundle.vim
 set backspace=2
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/bundle')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/vim-easy-align'
