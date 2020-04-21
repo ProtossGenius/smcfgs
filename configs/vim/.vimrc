@@ -3,7 +3,6 @@ filetype off
 syntax enable
 set ts=4
 set sw=4
-set rtp+=~/.vim/bundle/Vundle.vim
 set backspace=2
 call plug#begin('~/.vim/plugged')
 Plug 'mhinz/vim-signify'
