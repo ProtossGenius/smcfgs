@@ -3,8 +3,10 @@ filetype off
 syntax enable
 set ts=4
 set sw=4
+set rtp+=~/.vim/bundle/Vundle.vim
 set backspace=2
-call plug#begin('~/.vim/pluged')
+call plug#begin('~/.vim/plugged')
+Plug 'mhinz/vim-signify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/vim-easy-align'
@@ -15,6 +17,13 @@ Plug 'SirVer/ultisnips'
 Plug 'Raimondi/delimitMate'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'dense-analysis/ale'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-syntax'
+Plug 'kana/vim-textobj-function', { 'for':['c', 'cpp', 'vim', 'java'] }
+Plug 'sgur/vim-textobj-parameter'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'tpope/vim-unimpaired'
 call plug#end()
 map <F7> :NERDTreeMirror<CR>
 map <F7> :NERDTreeToggle<CR>
@@ -41,11 +50,11 @@ let g:ale_linters = {
 			\   'c++': ['clang'],
 			\   'c': ['clang'],
 			\   'python': ['pylint'],
-			\	'go':['golint', 'go'],
 			\}
 " " }}}}
 
-let g:ycm_global_ycm_extra_conf='~/.vim/pluged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+let g:ycm_global_ycm_extra_conf='~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
 let g:UltiSnipsExpandTrigger="<c-e>"
 let g:UltiSnipsListSnippets="<C-i>"
