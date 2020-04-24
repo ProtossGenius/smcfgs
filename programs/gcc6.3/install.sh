@@ -6,4 +6,4 @@ mkdir build
 cd build
 ../configure --enable-checking=release --enable-languages=c,c++ --disable-multilib
 make && make install
-
+ln -s /usr/local/lib64/libstdc++.so.6.0.22 /lib64/libstdc++.so.6
