@@ -32,6 +32,9 @@ nnoremap <F8>   <Esc>:w<CR>:!make qrun<CR>
 
 " ale-setting {{{
 " "自定义error和warning图标
+let g:ale_completion_delay = 500
+let g:ale_echo_delay = 20
+let g:ale_lint_delay = 500
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_lint_on_text_changed = 'insert'
 let g:ale_lint_on_insert_leave = 1
