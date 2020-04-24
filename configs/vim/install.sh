@@ -1,8 +1,11 @@
-cp ~/.smcfg/programs/vim/config/.vimrc ~/
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim +PlugInstall <~/.smcfg/programs/vim/config/vimexit 
+sm_vim_cfg=~/.smcfg/configs/vim
+cp $sm_vim_cfg/.vimrc ~/
+git clone https://github.com/junegunn/vim-plug.git /tmp/vim-plug
+mkdir -p ~/.vim/autoload/
+cp /tmp/vim-plug/plug.vim ~/.vim/autoload/
+vim +PlugInstall <$sm_vim_cfg/vimexit 
 cd ~/.vim/plugged/YouCompleteMe 
 git submodule update --init --recursive 
 ./install.py --gocode-completer  --clang-completer
-vim +GoInstallBinaries <~/.smcfg/programs/vim/config/vimexit
+cp $sm_vim_cfg/.ycm_extra_conf.py ~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py
+vim +GoInstallBinaries <$sm_vim_cfg/vimexit

@@ -16,6 +16,8 @@ Plug 'SirVer/ultisnips'
 Plug 'Raimondi/delimitMate'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'dense-analysis/ale'
+Plug 'universal-ctags/ctags'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-syntax'
@@ -31,15 +33,18 @@ nnoremap <F5>   <Esc>:w<CR>:!make
 nnoremap <F8>   <Esc>:w<CR>:!make qrun<CR>
 
 " ale-setting {{{
-" "自定义error和warning图标
+"let g:ale_linters_explicit = 1
 let g:ale_completion_delay = 500
 let g:ale_echo_delay = 20
 let g:ale_lint_delay = 500
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_lint_on_text_changed = 'insert'
+let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
+"let g:airline#extensions#ale#enabled = 1
 let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
- let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+let g:ale_c_cppcheck_options = ''
+let g:ale_cpp_cppcheck_options = ''
 "
 " "普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
  nmap sp <Plug>(ale_previous_wrap)
@@ -50,7 +55,7 @@ let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
  nmap <Leader>d :ALEDetail<CR>
 " "使用clang对c和c++进行语法检查，对python使用pylint进行语法检查
 let g:ale_linters = {
-			\   'c++': ['clang'],
+			\   'c++': ['g++'],
 			\   'c': ['clang'],
 			\   'python': ['pylint'],
 			\	'go':[ 'golint', 'go vet', 'go build', 'golangci-lint'],
@@ -74,6 +79,28 @@ let g:ycm_key_invoke_completion = '<c-z>'
 set completeopt=menu,menuone
 set number
 "noremap <c-z> <NOP>
+set tags=./.tags;,.tags
+"vim-gutentags
+" gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+"
+" " 所生成的数据文件的名称
+let g:gutentags_ctags_tagfile = '.tags'
+"
+" " 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+
+" 配置 ctags 的参数
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+
+" 检测 ~/.cache/tags 不存在就新建
+if !isdirectory(s:vim_tags)
+   silent! call mkdir(s:vim_tags, 'p')
+endif
+
 
 let g:ycm_semantic_triggers =  {
             \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
