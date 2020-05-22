@@ -140,5 +140,8 @@ au FileType go nmap <Leader>gds <Plug>(go-def-split)
 au FileType go nmap <Leader>gdt <Plug>(go-def-table)
 au FileType go nmap <Leader>rn <Plug>(go-rename)
 let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
 filetype plugin indent on
 
