@@ -1,4 +1,4 @@
-programs/gcc
+programs/gcc6.3
 programs/cmake
 libs/ncurses
 programs/python3

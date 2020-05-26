@@ -1,0 +1,1 @@
+centos.remove.sh
