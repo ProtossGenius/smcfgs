@@ -1,1 +1,1 @@
-centos.remove.sh
+echo "centos.remove.sh"

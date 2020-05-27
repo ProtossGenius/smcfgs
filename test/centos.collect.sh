@@ -1,1 +1,1 @@
-centos.collect.sh
+echo "centos.collect.sh"

@@ -1,1 +1,1 @@
-ubuntu.update.sh
+echo "ubuntu.update.sh"

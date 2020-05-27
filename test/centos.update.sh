@@ -1,1 +1,1 @@
-centos.update.sh
+echo "centos.update.sh"

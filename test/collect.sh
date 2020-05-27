@@ -1,1 +1,1 @@
-collect.sh
+echo "collect.sh"

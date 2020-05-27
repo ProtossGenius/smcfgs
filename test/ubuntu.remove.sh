@@ -1,1 +1,1 @@
-ubuntu.remove.sh
+echo "ubuntu.remove.sh"

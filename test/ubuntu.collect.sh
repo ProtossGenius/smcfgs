@@ -1,1 +1,1 @@
-ubuntu.collect.sh
+echo "ubuntu.collect.sh"

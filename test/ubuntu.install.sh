@@ -1,1 +1,1 @@
-ubuntu.install.sh
+echo "ubuntu.install.sh"

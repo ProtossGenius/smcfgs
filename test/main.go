@@ -12,7 +12,7 @@ func write(str string) {
 	str += ".sh"
 	f, err := smn_file.CreateNewFile(str)
 	check(err)
-	_, err = f.WriteString(str)
+	_, err = f.WriteString("echo \"" + str + "\"")
 	check(err)
 }
 

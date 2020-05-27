@@ -1,1 +1,1 @@
-remove.sh
+echo "remove.sh"

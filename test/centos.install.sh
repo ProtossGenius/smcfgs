@@ -1,1 +1,1 @@
-centos.install.sh
+echo "centos.install.sh"
