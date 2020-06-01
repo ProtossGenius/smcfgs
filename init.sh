@@ -9,5 +9,5 @@ source /etc/profile.d/sm_base_dir.sh
 sh ./programs/go/install.sh
 go get -u github.com/ProtossGenius/smntools/cmd/smcfg
 smcfg -install responses
-smcfg -install programs/configs/vim
+smcfg -install configs/vim
 
