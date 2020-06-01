@@ -48,7 +48,7 @@ func updateOne(dir *DirCfg) {
 	checkerr(err)
 }
 
-func DoInstall(args []string) error {
+func DoInstall(string) error {
 	cfg := readResponseList()
 	for _, dir := range cfg.Dirs {
 		if !installOne(dir) {
@@ -59,7 +59,7 @@ func DoInstall(args []string) error {
 	return nil
 }
 
-func DoUpdate(args []string) error {
+func DoUpdate(string) error {
 	cfg := readResponseList()
 	for _, dir := range cfg.Dirs {
 		updateOne(dir)
@@ -92,7 +92,7 @@ func appendDir(cfg *RespJson, baseDir string) {
 }
 
 //DoCollect do collect.
-func DoCollect(args []string) error {
+func DoCollect(string) error {
 	cfg := &RespJson{}
 	d, err := smn_file.FileReadAll("base_dir.list")
 	checkerr(err)
@@ -128,17 +128,11 @@ func readResponseList() *RespJson {
 }
 
 func main() {
-	var (
-		install = false
-		update  = false
-		collect = false
-	)
-
 	ed := smn_err.NewErrDeal()
 
-	smn_flag.RegisterBool("install", &install, "if install all response", DoInstall)
-	smn_flag.RegisterBool("update", &update, "if update all response", DoUpdate)
-	smn_flag.RegisterBool("collect", &collect, "if collect responses", DoCollect)
+	smn_flag.RegisterBool("install", "if install all response", DoInstall)
+	smn_flag.RegisterBool("update", "if update all response", DoUpdate)
+	smn_flag.RegisterBool("collect", "if collect responses", DoCollect)
 	flag.Parse()
 	smn_flag.Parse(flag.Args(), ed)
 }
