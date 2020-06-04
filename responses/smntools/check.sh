@@ -1,1 +1,1 @@
-cd $GOPATH/src/github.com/ProtossGenius/smntools
+ls $GOPATH/src/github.com/ProtossGenius/smntools
