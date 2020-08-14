@@ -1,1 +1,1 @@
-smcfg check programs/vim && ls ~/.vim
+smcfg check programs/vim && ls ~/.vim/plugged
