@@ -19,9 +19,7 @@ func strArr2intArr(list []string) []int {
 	res := make([]int, 0, len(list))
 
 	for _, str := range list {
-		num, err := strconv.Atoi(str)
-		check(err)
-
+		num, _ := strconv.Atoi(str)
 		res = append(res, num)
 	}
 
