@@ -1,5 +1,5 @@
+yum remove gcc* -y
 cd /tmp/
-# bash
 smwget 677a7623c7ef6ab99881bc4e048debb6  gcc-6.3.0.tar.bz2 https://mirrors.ustc.edu.cn/gnu/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2 
 #wget https://ftp.gnu.org/gnu/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2
 tar -jxvf gcc-6.3.0.tar.bz2 

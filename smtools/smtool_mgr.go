@@ -11,12 +11,6 @@ import (
 	"github.com/ProtossGenius/SureMoonNet/basis/smn_flag"
 )
 
-func check(err error) {
-	if err != nil {
-		panic(err)
-	}
-}
-
 func configLine(perLine func(string) error) error {
 	data, err := smn_file.FileReadAll("./smtools.list")
 	if err != nil {
@@ -24,12 +18,16 @@ func configLine(perLine func(string) error) error {
 	}
 
 	for _, line := range strings.Split(string(data), "\n") {
-		if strings.HasPrefix(line, ";") {
+		line = strings.TrimSpace(line)
+
+		if line == "" || strings.HasPrefix(line, ";") {
 			continue
 		}
+
 		fmt.Println("CONFIG LINE: ", line)
+
 		if err := perLine(line); err != nil {
-			return err
+			fmt.Println("error :", err)
 		}
 	}
 
@@ -45,6 +43,7 @@ func doUG(string) error {
 func doCheck(string) error {
 	return configLine(func(line string) error {
 		spl := strings.Split(line, "/")
+
 		return smn_exec.EasyDirExec("./", "which", spl[len(spl)-1])
 	})
 }
