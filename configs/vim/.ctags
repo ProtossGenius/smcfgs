@@ -1,9 +1,12 @@
---langdef=MYLUA
---langmap=MYLUA:.lua
---regex-MYLUA=/^local[ \t]+([a-zA-Z0-9_]+)[ \t]*=[ \t]*\{/\1/v,var/
---regex-MYLUA=/[ \t]*([a-zA-Z0-9_]+)[ \t]*=[ \t]*function[ \t]*\(/\1/f,function/
---regex-MYLUA=/function[ \t]+([a-zA-Z0-9_]+)[\.:]([a-zA-Z0-9_]+)[ \t]*\(/\2/f,function/
---regex-MYLUA=/function[ \t]+([a-zA-Z0-9_]+)[ \t]*\(/\1/f,function/
+--langdef=MYLUA 
+--langmap=MYLUA:.lua 
+--regex-MYLUA=/^.*\s*function\s*(\w+)[\.:](\w+).*$/\2/f/
+--regex-MYLUA=/^\s*(\w+)\s*=\s*[0-9]+.*$/\1/e/
+--regex-MYLUA=/^.*\s*function\s*(\w+)\s*\(.*$/\1/f/ 
+--regex-MYLUA=/^\s*(\w+)\s*=\s*\{.*$/\1/e/ 
+--regex-MYLUA=/^\s*module\s+\"(\w+)\".*$/\1/m,module/
+--regex-MYLUA=/^\s*module\s+\"[a-zA-Z0-9._]+\.(\w+)\".*$/\1/m,module/
+
 
 --langdef=PROTO
 --langmap=PROTO:.proto

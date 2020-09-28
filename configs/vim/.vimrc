@@ -19,6 +19,7 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'dense-analysis/ale'
 Plug 'universal-ctags/ctags'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/asyncrun.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-syntax'
@@ -31,9 +32,19 @@ call plug#end()
 map <F7> :NERDTreeMirror<CR>
 map <F7> :NERDTreeToggle<CR>
 imap <F6> <C-x><C-o>
-nnoremap <F5>   <Esc>:w<CR>:!make 
-nnoremap <F8>   <Esc>:w<CR>:!make qrun<CR>
-nnoremap <F9>   <Esc>:w<CR>:!make debug<CR>
+nnoremap <F5> :w<CR>:!make 
+
+" 	asyncrun 
+" 自动打开 quickfix window ，高度为 6
+ let g:asyncrun_open = 6
+"
+" " 任务结束时候响铃提醒
+ let g:asyncrun_bell = 1
+"
+" " 设置 F10 打开/关闭 Quickfix 窗口
+ nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
+nnoremap <F8> :w<CR>:AsyncRun -cwd=. -raw make qrun<CR>
+nnoremap <F9> :w<CR>:AsyncRun -cwd=. -raw make debug<CR>
 
 " ale-setting {{{
 "let g:ale_linters_explicit = 1
@@ -126,8 +137,6 @@ let g:Lf_ShowRelativePath = 0
 let g:Lf_HideHelp = 1
 let g:Lf_StlColorscheme = 'powerline'
 let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
-
-
 
 
 
