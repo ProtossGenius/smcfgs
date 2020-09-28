@@ -43,8 +43,8 @@ nnoremap <F5> :w<CR>:!make
 "
 " " 设置 F10 打开/关闭 Quickfix 窗口
  nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
-nnoremap <F8> :w<CR>:AsyncRun -cwd=. -raw make qrun<CR>
-nnoremap <F9> :w<CR>:AsyncRun -cwd=. -raw make debug<CR>
+nnoremap <F8> :w<CR>:AsyncRun  make qrun<CR>
+nnoremap <F9> :w<CR>:AsyncRun  make debug<CR>
 
 " ale-setting {{{
 "let g:ale_linters_explicit = 1
