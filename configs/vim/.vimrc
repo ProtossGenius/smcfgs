@@ -42,40 +42,69 @@ nnoremap <F5> :w<CR>:!make
  let g:asyncrun_bell = 1
 "
 " " 设置 F10 打开/关闭 Quickfix 窗口
- nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
+nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
 nnoremap <F8> :w<CR>:AsyncRun  make qrun<CR>
 nnoremap <F9> :w<CR>:AsyncRun  make debug<CR>
 
-" ale-setting {{{
-"let g:ale_linters_explicit = 1
+"----------------------------------------------------------------------
+" ale
+"----------------------------------------------------------------------
 let g:ale_completion_delay = 500
 let g:ale_echo_delay = 20
 let g:ale_lint_delay = 500
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
-"let g:airline#extensions#ale#enabled = 1
+
+
+let g:airline#extensions#ale#enabled = 1
+
+
+"----------------------------------------------------------------------
+" linters
+"----------------------------------------------------------------------
+let g:ale_linters = {
+			\ 'c': ['gcc', 'cppcheck'], 
+			\ 'cpp': ['gcc', 'cppcheck'], 
+			\ 'python': ['flake8', 'pylint'], 
+			\ 'lua': ['luac'], 
+			\	'go':[ 'golint', 'go vet', 'go build', 'golangci-lint'],
+			\ 'java': ['javac'],
+			\ 'javascript': ['eslint'], 
+			\ }
+
+
 let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
-let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++20'
-let g:ale_c_cppcheck_options = ''
-let g:ale_cpp_cppcheck_options = ''
-"
+let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++2a -fcoroutines'
+let g:ale_cpp_cc_options = '-Wall -O2 -std=c++2a -fcoroutines'
+let g:ale_c_cppcheck_options = '--inline-suppr '
+let g:ale_cpp_cppcheck_options = '--inline-suppr '
+
+" let g:ale_linters.text = ['textlint', 'write-good', 'languagetool']
+" let g:ale_linters.lua += ['luacheck']
+
+if executable('gcc') == 0 && executable('clang')
+	let g:ale_linters.c += ['clang']
+	let g:ale_linters.cpp += ['clang']
+endif
+
+
 " "普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
  nmap sp <Plug>(ale_previous_wrap)
  nmap sn <Plug>(ale_next_wrap)
+
+let mapleader = ","
 " "<Leader>s触发/关闭语法检查
  nmap <Leader>s :ALEToggle<CR>
 " "<Leader>d查看错误或警告的详细信息
  nmap <Leader>d :ALEDetail<CR>
-" "使用clang对c和c++进行语法检查，对python使用pylint进行语法检查
-let g:ale_linters = {
-			\   'c++': ['g++'],
-			\   'c': ['clang'],
-			\   'python': ['pylint'],
-			\	'go':[ 'golint', 'go vet', 'go build', 'golangci-lint'],
-			\}
-" " }}}}
 
+" screen jump
+let mapleader = "`"
+nmap <Leader><Right> <C-w><Right>
+nmap <Leader><Left> <C-w><Left>
+nmap <Leader><Up> <C-w><Up>
+nmap <Leader><Down> <C-w><Down>
 
 let g:ycm_global_ycm_extra_conf='~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
