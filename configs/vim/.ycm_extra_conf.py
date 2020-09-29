@@ -9,7 +9,7 @@ flags = [
     '-Wno-variadic-macros',
     '-fexceptions',
     '-DNDEBUG',
-    '-std=c++11',
+    '-std=c++20',
     '-x',
     'c++',
     '-I',
