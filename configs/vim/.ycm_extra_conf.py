@@ -9,7 +9,8 @@ flags = [
     '-Wno-variadic-macros',
     '-fexceptions',
     '-DNDEBUG',
-    '-std=c++11',
+    '-std=c++2a',
+    '-fcoroutines',
     '-x',
     'c++',
     '-I',
@@ -21,7 +22,9 @@ flags = [
     '-isystem'
     '/usr/include/c++/7',
     '-isystem',
-    '/usr/include/c++/7/bits'
+    '/usr/include/c++/7/bits',
+    '-isystem',
+    '/usr/local/include/c++/10.2.0/bits/',
   ]
  
 SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', ]
