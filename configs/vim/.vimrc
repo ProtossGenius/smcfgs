@@ -34,6 +34,7 @@ imap <F6> <C-x><C-o>
 nnoremap <F5>   <Esc>:w<CR>:!make 
 nnoremap <F8>   <Esc>:w<CR>:!make qrun<CR>
 nnoremap <F9>   <Esc>:w<CR>:!make debug<CR>
+nnoremap <F10>   <Esc>:w<CR>:%s/./&/g<CR>:w<CR>
 
 " ale-setting {{{
 "let g:ale_linters_explicit = 1
