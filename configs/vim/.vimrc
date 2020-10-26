@@ -31,19 +31,26 @@ Plug 'Yggdroot/LeaderF'
 call plug#end()
 map <F7> :NERDTreeMirror<CR>
 map <F7> :NERDTreeToggle<CR>
-imap <F6> <C-x><C-o>
-nnoremap <F5>   <Esc>:w<CR>:!make 
-nnoremap <F8>   <Esc>:w<CR>:!make qrun<CR>
-nnoremap <F9>   <Esc>:w<CR>:!make debug<CR>
-nnoremap <F10>   <Esc>:w<CR>:%s/./&/g<CR>:w<CR>
 
 " 	asyncrun 
 " 自动打开 quickfix window ，高度为 6
- let g:asyncrun_open = 6
+"" let g:asyncrun_open = 6
 "
 " " 任务结束时候响铃提醒
- let g:asyncrun_bell = 1
+"" let g:asyncrun_bell = 1
+"
+" " 设置 F10 打开/关闭 Quickfix 窗口
+"nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
+"nnoremap <F5> :w<CR>:AsyncRun -mode=term -pos=tab make qrun<CR>
+"nnoremap <F6> :w<CR>:AsyncRun -mode=term -pos=tab make 
+"nnoremap <F8> :w<CR>:AsyncRun -mode=term -pos=tab make test<CR>
+"nnoremap <F9> :w<CR>:AsyncRun -mode=term -pos=ta  make debug<CR>
 
+nnoremap <F5> :w<CR>:!make qrun<CR>
+nnoremap <F6> :w<CR>:!make 
+nnoremap <F8> :w<CR>:!make test<CR>
+nnoremap <F9> :w<CR>:!make debug<CR>
+nnoremap <F10>   <Esc>:w<CR>:%s/./&/g<CR>:w<CR>
 "----------------------------------------------------------------------
 " ale
 "----------------------------------------------------------------------
