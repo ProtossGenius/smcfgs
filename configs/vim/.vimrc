@@ -50,7 +50,7 @@ nnoremap <F5> :w<CR>:!make qrun<CR>
 nnoremap <F6> :w<CR>:!make 
 nnoremap <F8> :w<CR>:!make test<CR>
 nnoremap <F9> :w<CR>:!make debug<CR>
-nnoremap <F10>   <Esc>:w<CR>:%s/./&/g<CR>:w<CR>
+nnoremap <F10>   <Esc>:w<CR>g<C-g>
 "----------------------------------------------------------------------
 " ale
 "----------------------------------------------------------------------

@@ -1,6 +1,7 @@
 smcfg -install programs/ctags
 sm_vim_cfg=~/.smcfg/configs/vim
 cp $sm_vim_cfg/.vimrc ~/
+cp $sm_vim_cfg/.ctags ~/
 git clone https://github.com/junegunn/vim-plug.git /tmp/vim-plug
 mkdir -p ~/.vim/autoload/
 cp /tmp/vim-plug/plug.vim ~/.vim/autoload/
