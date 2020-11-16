@@ -107,6 +107,8 @@ func DoCollect(string) error {
 
 	jstr, err := smn_data.ValToJson(cfg)
 	checkerr(err)
+	jstr = strings.ReplaceAll(jstr, "{", "{\n")
+
 	f, err := smn_file.CreateNewFile("./responses.json")
 	checkerr(err)
 
