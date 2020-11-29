@@ -1,4 +1,6 @@
 smcfg -install programs/ctags
+cd /usr/include
+ctags --fields=+niazS --extra=+q --c++-kinds=+px -R `pwd`
 sm_vim_cfg=~/.smcfg/configs/vim
 cp $sm_vim_cfg/.vimrc ~/
 cp $sm_vim_cfg/.ctags ~/
