@@ -79,9 +79,10 @@ let g:ale_linters = {
 			\ }
 
 
-let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
-let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++2a -fcoroutines'
-let g:ale_cpp_cc_options = '-Wall -O2 -std=c++2a -fcoroutines'
+let g:ale_c_gcc_options = '-Wall -Werror -O2 -std=c99'
+" when check cpp20 should add -std=c++2a -fcoroutines
+let g:ale_cpp_gcc_options = '-Wall -Werror -O2'
+let g:ale_cpp_cc_options = '-Wall -Werror -O2'
 let g:ale_c_cppcheck_options = '--inline-suppr '
 let g:ale_cpp_cppcheck_options = '--inline-suppr '
 
