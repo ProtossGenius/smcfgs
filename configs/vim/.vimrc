@@ -11,7 +11,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/vim-easy-align'
 Plug 'fatih/vim-go'
-Plug 'fatih/molokai'
 Plug 'scrooloose/nerdtree'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
@@ -187,11 +186,6 @@ au FileType go nmap <Leader>gdt <Plug>(go-def-split)
 au FileType go nmap <Leader>gds <Plug>(go-def-split)
 au FileType go nmap <Leader>gdt <Plug>(go-def-table)
 au FileType go nmap <Leader>rn <Plug>(go-rename)
-
-set t_Co=256
-let g:rehash256 = 1
-let g:molokai_original = 1
-colorscheme molokai
 
 let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
