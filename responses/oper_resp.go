@@ -59,6 +59,25 @@ func DoInstall(string) error {
 	return nil
 }
 
+// DoStatus .
+func DoStatus(string) error {
+	cfg := readResponseList()
+	for _, dir := range cfg.Dirs {
+		fmt.Println("==== getting status ... ", dir.CmpPath())
+
+		if !smn_file.IsFileExist(dir.CmpPath()) {
+			fmt.Println("response ", dir.ResponseName, " not exist")
+		}
+
+		err := smn_exec.EasyDirExec(dir.CmpPath(), "git", "status")
+		if err != nil {
+			return fmt.Errorf("when exec status error:\n %w", err)
+		}
+	}
+
+	return nil
+}
+
 func DoUpdate(string) error {
 	cfg := readResponseList()
 	for _, dir := range cfg.Dirs {
@@ -133,6 +152,7 @@ func main() {
 	ed := smn_err.NewErrDeal()
 
 	smn_flag.RegisterBool("install", "if install all response", DoInstall)
+	smn_flag.RegisterBool("status", "status", DoStatus)
 	smn_flag.RegisterBool("update", "if update all response", DoUpdate)
 	smn_flag.RegisterBool("collect", "if collect responses", DoCollect)
 	flag.Parse()
