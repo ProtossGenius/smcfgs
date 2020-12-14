@@ -114,8 +114,8 @@ nmap <Leader><Down> <C-w><Down>
 
 let g:ycm_global_ycm_extra_conf='~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
-let g:UltiSnipsExpandTrigger="<c-e>"
-let g:UltiSnipsListSnippets="<C-i>"
+let g:UltiSnipsExpandTrigger="<C-e>"
+let g:UltiSnipsListSnippets="<C-l>"
 let g:UltiSnipsJumpForwardTrigger="<C-f>"
 let g:UltiSnipsJumpBackwardTrigger="<C-b>"
 let g:ycm_add_preview_to_completeopt = 0
