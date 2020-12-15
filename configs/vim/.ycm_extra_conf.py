@@ -23,6 +23,10 @@ flags = [
     '/usr/include/c++/7',
     '-isystem',
     '/usr/include/c++/7/bits',
+    '-isystem'
+    '/usr/include/c++/9',
+    '-isystem',
+    '/usr/include/c++/9/bits',
     '-isystem',
     '/usr/local/include/c++/10.2.0/bits/',
   ]
