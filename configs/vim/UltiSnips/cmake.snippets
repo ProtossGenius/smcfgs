@@ -1,0 +1,26 @@
+snippet subdir "add_subdirectory" b
+add_subdirectory(${1:dirName})
+
+endsnippet
+
+snippet addexe "add_executable" b
+add_executable(${1:project} ${2:xx.cpp})
+
+endsnippet
+
+snippet linklib "target_link_libraries" b
+target_link_libraries(${1:project} ${2:subdir})
+
+endsnippet
+
+snippet opt "option" b
+option (${1:name} "${2:comments}" ${3:ON})
+
+endsnippet
+
+snippet if "if" b
+if (${1:option})
+	${2:${VISUAL}}
+endif ($1)
+
+endsnippet
