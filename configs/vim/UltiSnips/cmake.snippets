@@ -1,20 +1,43 @@
-snippet subdir "add_subdirectory" b
+snippet cmake_minimum_required "cmake_minimum_required" b
+cmake_minimum_required(VERSION ${1:2.6})
+
+endsnippet
+
+snippet option "option" b
+option (${1:name} "${2:comments}" ${3:ON})
+
+endsnippet
+
+snippet project "project" b
+project (${1:ProjectName})
+
+endsnippet
+
+snippet set "set" b
+set (${1:attribName} ${2:value})
+
+endsnippet
+
+snippet proDir "project dir" b
+${PROJECT_SOURCE_DIR}
+endsnippet
+
+snippet include_directories "include_directories" b
+include_directories(${1:dir})
+endsnippet
+
+snippet add_subdirectory "add_subdirectory" b
 add_subdirectory(${1:dirName})
 
 endsnippet
 
-snippet addexe "add_executable" b
+snippet add_executable "add_executable" b
 add_executable(${1:project} ${2:xx.cpp})
 
 endsnippet
 
-snippet linklib "target_link_libraries" b
+snippet target_link_libraries "target_link_libraries" b
 target_link_libraries(${1:project} ${2:subdir})
-
-endsnippet
-
-snippet opt "option" b
-option (${1:name} "${2:comments}" ${3:ON})
 
 endsnippet
 
@@ -23,4 +46,19 @@ if (${1:option})
 	${2:${VISUAL}}
 endif ($1)
 
+endsnippet
+
+snippet add_custom_target "add_custom_target" b
+add_custom_target(${1:target_name}
+	${2:cmds}
+	)
+
+endsnippet
+
+snippet COMMAND "command" b
+COMMAND ${1:command}
+endsnippet
+
+snippet DEPENDS "depends" b
+DEPENDS ${1:depend list}
 endsnippet
