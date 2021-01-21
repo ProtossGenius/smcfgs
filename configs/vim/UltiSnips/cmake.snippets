@@ -19,8 +19,16 @@ set (${1:attribName} ${2:value})
 endsnippet
 
 snippet proDir "project dir" b
-${PROJECT_SOURCE_DIR}
+${PROJECT_SOURCE_DIR}/
 endsnippet
+
+snippet PRODIR "project dir" b
+${PROJECT_SOURCE_DIR}/
+endsnippet 
+
+snippet src "project dir" b
+${PROJECT_SOURCE_DIR}/
+endsnippet 
 
 snippet include_directories "include_directories" b
 include_directories(${1:dir})
@@ -61,4 +69,8 @@ endsnippet
 
 snippet DEPENDS "depends" b
 DEPENDS ${1:depend list}
+endsnippet
+
+snippet DESTINATION "DESTINATION" b
+DESTINATION
 endsnippet
