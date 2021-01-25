@@ -74,3 +74,16 @@ endsnippet
 snippet DESTINATION "DESTINATION" b
 DESTINATION
 endsnippet
+
+snippet demo "a demo cfg" b
+cmake_minimum_required(VERSION ${1:2.6})
+
+project (${2:name})
+
+add_library($2 ${3})
+add_executable($2 ${4})
+target_link_libraries($2 ${5})
+
+install (TARGETS $2 DESTINATION lib)
+install (FILES ${6} DESTINATION include/$2)
+endsnippet
