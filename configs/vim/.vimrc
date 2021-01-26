@@ -129,6 +129,7 @@ set completeopt=menu,menuone
 set number
 "noremap <c-z> <NOP>
 set tags=./.tags;,.tags
+set tags+=/usr/local/include/tags
 set tags+=/usr/include/tags
 "vim-gutentags
 " gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
