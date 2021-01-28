@@ -6,6 +6,7 @@ set ts=4
 set sw=4
 set backspace=2
 call plug#begin('~/.vim/plugged')
+Plug 'rhysd/vim-clang-format'
 Plug 'mhinz/vim-signify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -196,5 +197,7 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_generate_tags = 1
 
-filetype plugin indent on
+"配置
+let g:clang_format#auto_format_on_insert_leave=1	"退出插入模式时自动格式化
 
+filetype plugin indent on

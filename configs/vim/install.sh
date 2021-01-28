@@ -2,6 +2,7 @@ smcfg -install programs/ctags
 cd /usr/include
 ctags --fields=+niazS --extra=+q --c++-kinds=+px -R `pwd`
 sm_vim_cfg=~/.smcfg/configs/vim
+apt-get install clang-format -y
 cp $sm_vim_cfg/.vimrc ~/
 cp $sm_vim_cfg/.ctags ~/
 git clone https://github.com/junegunn/vim-plug.git /tmp/vim-plug
