@@ -1,7 +1,5 @@
-pip3 install shadowsocks
-sudo cp clt.json /etc/shadowsocks.cfg.json
+sudo pip3 install shadowsocks
+sudo cp clt.json /etc/ss.clt.json
 cp ~/.smcfg/programs/ssclient/fq.sh ~/fq.sh
-ssclient -c /etc/shadowsocks.cfg.json -d start
 go get -u github.com/ProtossGenius/kcptun/cmd/kcptun-client 
-
-
+sudo sed -i 's/cleanup/reset/g' /usr/local/lib/python3.8/dist-packages/shadowsocks/crypto/openssl.py

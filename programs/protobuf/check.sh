@@ -1,1 +1,1 @@
-protoc --version
+whereis protoc

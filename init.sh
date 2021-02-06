@@ -16,7 +16,7 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 go get -u github.com/ProtossGenius/smntools/cmd/smcfg
 
 echo "you should call this command by yourself"
-echo "source /etc/profile.d/*.sh"
+echo "source /etc/profile.d/go.sh"
 #smcfg -install responses
 #smcfg -install configs/vim
 

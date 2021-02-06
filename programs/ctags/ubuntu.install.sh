@@ -1,1 +1,1 @@
-apt-get install exuberant-ctags -y
+sudo apt-get install exuberant-ctags -y

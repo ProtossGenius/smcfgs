@@ -5,6 +5,6 @@ git submodule update --init --recursive
 ./configure
 make 
 #make check
-make install
+sudo make install
 ldconfig
 go get -u google.golang.org/protobuf/cmd/protoc-gen-go
