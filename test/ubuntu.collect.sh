@@ -1,1 +1,1 @@
-echo "ubuntu.collect.sh"
+echo "calling ubuntu.collect.sh"

@@ -1,1 +1,1 @@
-echo "centos.collect.sh"
+echo "calling centos.collect.sh"

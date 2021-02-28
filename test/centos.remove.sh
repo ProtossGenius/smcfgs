@@ -1,1 +1,1 @@
-echo "centos.remove.sh"
+echo "calling centos.remove.sh"

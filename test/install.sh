@@ -1,1 +1,1 @@
-echo "install.sh"
+echo "calling install.sh"

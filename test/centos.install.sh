@@ -1,1 +1,1 @@
-echo "centos.install.sh"
+echo "calling centos.install.sh"

@@ -1,1 +1,1 @@
-echo "remove.sh"
+echo "calling remove.sh"

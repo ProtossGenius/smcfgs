@@ -1,0 +1,1 @@
+echo "calling kali.update.sh"

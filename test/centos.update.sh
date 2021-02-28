@@ -1,1 +1,1 @@
-echo "centos.update.sh"
+echo "calling centos.update.sh"

@@ -1,1 +1,1 @@
-echo "ubuntu.remove.sh"
+echo "calling ubuntu.remove.sh"

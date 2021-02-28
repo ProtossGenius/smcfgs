@@ -1,1 +1,1 @@
-echo "update.sh"
+echo "calling update.sh"
