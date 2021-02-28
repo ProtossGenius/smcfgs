@@ -9,3 +9,5 @@ export GOPATH=/data/workspace/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 go env -w GO111MODULE=on
 go env -w GOPROXY=https://goproxy.io,direct
+sudo ln -s /data/programs/go/bin/go /usr/bin/go
+sudo ln -s /data/programs/go/bin/gofmt /usr/bin/gofmt
