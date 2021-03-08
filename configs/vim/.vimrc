@@ -5,6 +5,7 @@ syntax enable
 set ts=4
 set sw=4
 set backspace=2
+set noshowmode
 call plug#begin('~/.vim/plugged')
 Plug 'rhysd/vim-clang-format'
 Plug 'mhinz/vim-signify'
@@ -18,7 +19,6 @@ Plug 'SirVer/ultisnips'
 Plug 'Raimondi/delimitMate'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'dense-analysis/ale'
-Plug 'universal-ctags/ctags'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'kana/vim-textobj-user'
@@ -29,7 +29,10 @@ Plug 'sgur/vim-textobj-parameter'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-unimpaired'
 Plug 'Yggdroot/LeaderF'
+Plug 'Shougo/echodoc.vim'
 call plug#end()
+
+
 map <F7> :NERDTreeMirror<CR>
 map <F7> :NERDTreeToggle<CR>
 
@@ -146,7 +149,7 @@ let g:gutentags_cache_dir = s:vim_tags
 " 配置 ctags 的参数
 let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
 let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
-let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px', '--output-format=e-ctags']
 
 " 检测 ~/.cache/tags 不存在就新建
 if !isdirectory(s:vim_tags)
@@ -162,7 +165,7 @@ let g:ycm_semantic_triggers =  {
 let g:Lf_ShortcutF = '<c-p>'
 let g:Lf_ShortcutB = '<m-n>'
 noremap <c-n> :LeaderfMru<cr>
-noremap <c-l> :LeaderfFunction!<cr>
+noremap <m-p> :LeaderfFunction!<cr>
 noremap <m-n> :LeaderfBuffer<cr>
 noremap <m-m> :LeaderfTag<cr>
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
@@ -196,8 +199,30 @@ let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_generate_tags = 1
-
+let g:echodoc#enable_at_startup = 1
 "配置
 let g:clang_format#auto_format_on_insert_leave=1	"退出插入模式时自动格式化
+
+
+function! Terminal_MetaMode()
+    set ttimeout ttimeoutlen=30
+    if has('nvim') || has('gui_running')
+        return
+    endif
+    function! s:metacode(key)
+        exec "set <M-".a:key.">=\e".a:key
+    endfunc
+    for i in range(10)
+        call s:metacode(nr2char(char2nr('0') + i))
+    endfor
+    for i in range(26)
+        call s:metacode(nr2char(char2nr('a') + i))
+		if i != 14
+			call s:metacode(nr2char(char2nr('A') + i))
+		endif
+    endfor
+
+endfunc
+call Terminal_MetaMode()
 
 filetype plugin indent on
