@@ -7,7 +7,7 @@ set sw=4
 set backspace=2
 set noshowmode
 call plug#begin('~/.vim/plugged')
-Plug 'rhysd/vim-clang-format'
+" Plug 'rhysd/vim-clang-format'
 Plug 'mhinz/vim-signify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
