@@ -1,5 +1,5 @@
 cd /usr/local/include 
-ctags  -R --c++-kinds=+px --fields=+niazS --extra=+q --c-kinds=+px  . 
+sudo ctags  -R --c++-kinds=+px --fields=+niazS --extra=+q --c-kinds=+px --output-format=e-ctags . 
 cd /usr/include 
-ctags -R --c++-kinds=+px --fields=+niazS --extra=+q --c-kinds=+px  . 
+sudo ctags -R --c++-kinds=+px --fields=+niazS --extra=+q --c-kinds=+px --output-format=e-ctags . 
 

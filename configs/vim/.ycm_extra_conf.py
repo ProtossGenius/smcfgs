@@ -18,19 +18,9 @@ flags = [
     '-I',
     '/usr/local/include/',
     '-isystem',
-    '/usr/lib/gcc/x86_64-linux-gnu/5/include',
+    '/usr/include/c++/10',
     '-isystem',
-    '/usr/include/x86_64-linux-gnu',
-    '-isystem'
-    '/usr/include/c++/7',
-    '-isystem',
-    '/usr/include/c++/7/bits',
-    '-isystem'
-    '/usr/include/c++/9',
-    '-isystem',
-    '/usr/include/c++/9/bits',
-    '-isystem',
-    '/usr/local/include/c++/10.2.0/bits/',
+    '/usr/include/c++/10/bits/',
   ]
  
 SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', ]
