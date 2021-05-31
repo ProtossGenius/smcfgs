@@ -4,6 +4,8 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
+	"os"
+	"path/filepath"
 	"strings"
 
 	"github.com/ProtossGenius/SureMoonNet/basis/smn_data"
@@ -21,7 +23,11 @@ type DirCfg struct {
 }
 
 func (dirCfg *DirCfg) CmpPath() string {
-	return dirCfg.BasePath + "/" + dirCfg.ResponseName
+
+	path, err := filepath.Abs(dirCfg.BasePath + "/" + dirCfg.ResponseName)
+	checkerr(err)
+
+	return path
 }
 
 type RespJson struct {
@@ -119,6 +125,14 @@ func DoCollect(string) error {
 	for _, dir := range strings.Split(string(d), "\n") {
 		if dir == "" || strings.HasPrefix(dir, "#") {
 			continue
+		}
+
+		if strings.HasPrefix(dir, "~") {
+			fmt.Println("????????????????????????")
+			home, err := os.UserHomeDir()
+			checkerr(err)
+
+			dir = home + dir[1:]
 		}
 
 		appendDir(cfg, dir)

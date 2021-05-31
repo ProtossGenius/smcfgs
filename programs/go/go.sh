@@ -1,4 +1,4 @@
-export GOROOT=/data/programs/go
-export GOPATH=/data/workspace/go 
+export GOROOT=/opt/go
+export GOPATH=~/gopath
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
