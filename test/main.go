@@ -23,5 +23,6 @@ func main() {
 		write("centos." + str)
 		write("ubuntu." + str)
 		write("kali." + str)
+		write("darwin." + str)
 	}
 }
