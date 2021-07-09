@@ -1,4 +1,3 @@
-programs/gcc6.3
-programs/cmake
+programs/buildtools
 libs/ncurses
 programs/python3

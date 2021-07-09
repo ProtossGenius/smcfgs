@@ -1,2 +1,2 @@
-apt-get install build-essential g++ -y
-apt-get install make -y
+apt-get install build-essential gcc g++ -y
+apt-get install make cmake -y
