@@ -77,11 +77,10 @@ let g:ale_linters = {
 			\ 'cpp': ['gcc', 'cppcheck'], 
 			\ 'python': ['flake8', 'pylint'], 
 			\ 'lua': ['luac'], 
-			\	'go':[ 'golint', 'go vet', 'go build', 'golangci-lint'],
+			\ 'go':['golangci-lint', 'golint', 'go vet', 'go build'],
 			\ 'java': ['javac'],
 			\ 'javascript': ['eslint'], 
 			\ }
-
 
 let g:ale_c_gcc_options = '-Wall -Werror -O2 -std=c99'
 " when check cpp20 should add -std=c++2a -fcoroutines
@@ -89,7 +88,7 @@ let g:ale_cpp_gcc_options = '-Wall -Werror -O2'
 let g:ale_cpp_cc_options = '-Wall -Werror -O2'
 let g:ale_c_cppcheck_options = '--inline-suppr '
 let g:ale_cpp_cppcheck_options = '--inline-suppr '
-
+let g:ale_go_golangci_lint_package  = 1
 " let g:ale_linters.text = ['textlint', 'write-good', 'languagetool']
 " let g:ale_linters.lua += ['luacheck']
 
@@ -202,7 +201,6 @@ let g:go_highlight_generate_tags = 1
 let g:echodoc#enable_at_startup = 1
 "配置
 let g:clang_format#auto_format_on_insert_leave=1	"退出插入模式时自动格式化
-
 
 function! Terminal_MetaMode()
     set ttimeout ttimeoutlen=30

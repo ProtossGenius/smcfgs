@@ -1,3 +1,3 @@
 echo "updateing ~/.smcfg"
-git pull
+smgit pull
 go get -u github.com/ProtossGenius/smntools/cmd/smcfg
