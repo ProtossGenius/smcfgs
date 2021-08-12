@@ -81,6 +81,7 @@ let g:ale_linters = {
 			\ 'java': ['javac'],
 			\ 'javascript': ['eslint'], 
 			\ }
+" go remove  'golangci-lint', because it show fake error
 
 let g:ale_c_gcc_options = '-Wall -Werror -O2 -std=c99'
 " when check cpp20 should add -std=c++2a -fcoroutines

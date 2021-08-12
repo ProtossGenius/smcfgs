@@ -1,9 +1,8 @@
-cd $sm_programs && git clone  https://gitee.com/ProtossGenius/FFmpeg.git
-cd FFmpeg && ./configure --enable-shared --prefix=/xxx/ffmpeg --enable-libmp3lame
-make 
-make install
-echo  "/xxx/ffmpeg/lib" >> /etc/ld.so.conf.d/ffmpeg.conf
-ldconfig
-echo "export FFMPEG_HOME=/data/programs/FFmpeg" >> /etc/profile.d/ffmpeg.sh  
-echo "export PATH=\$FFMPEG_HOME:\$PATH" >> /etc/profile.d/ffmpeg.sh
-source /etc/profile.d/ffmpeg.sh
+cd /tmp && git clone https://git.videolan.org/git/ffmpeg/nv-codec-headers.git
+cd nv-codec-headers && sudo make install && cd -
+git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg/
+sudo apt-get install build-essential yasm cmake libtool libc6 libc6-dev unzip wget libnuma1 libnuma-dev
+cd ffmpeg 
+./configure --enable-nonfree -–enable-cuda-sdk –enable-libnpp --extra-cflags=-I/usr/local/cuda/include --extra-ldflags=-L/usr/local/cuda/lib64
+make -j 8
+sudo make install
