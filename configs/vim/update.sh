@@ -1,7 +1,7 @@
 vim_cfg=~/.smcfg/configs/vim/
 cp $vim_cfg/.vimrc ~/.vimrc
 cp $vim_cfg/.ctags ~/.ctags
-cp $vim_cfg/UltiSnips ~/.vim -r
+cp -r $vim_cfg/UltiSnips ~/.vim
 cp $vim_cfg/.clang-format ~/
 vim +PlugUpdate  < $vim_cfg/vimexit
 cd ~/.vim/plugged/YouCompleteMe 
