@@ -1,1 +1,1 @@
-apt-get install -y ncurses-*
+sudo apt-get install -y ncurses-*

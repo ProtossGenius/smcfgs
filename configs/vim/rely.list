@@ -1,4 +1,4 @@
 programs/cmake
-programs/vim
+#programs/vim
 programs/ctags
 programs/python3

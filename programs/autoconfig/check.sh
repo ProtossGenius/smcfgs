@@ -1,1 +1,1 @@
-autoreconf -h
+autoreconf --version

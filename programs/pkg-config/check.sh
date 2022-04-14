@@ -1,1 +1,1 @@
-pkg-config -v
+pkg-config --version
