@@ -15,6 +15,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/vim-easy-align'
 Plug 'fatih/vim-go'
+Plug 'Chiel92/vim-autoformat'
 " Plug 'scrooloose/nerdtree'
 Plug 'justinmk/vim-dirvish'
 Plug 'honza/vim-snippets'
@@ -52,7 +53,6 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'maximbaz/lightline-ale'
-
 " Snippet support
 if s:using_snippets
   Plug 'sirver/ultisnips'
@@ -228,7 +228,7 @@ let g:go_highlight_extra_types = 1
 let g:go_highlight_generate_tags = 1
 let g:echodoc#enable_at_startup = 1
 "配置
-let g:clang_format#auto_format_on_insert_leave=1	"退出插入模式时自动格式化
+" let g:clang_format#auto_format_on_insert_leave=1	"退出插入模式时自动格式化
 
 function! Terminal_MetaMode()
     set ttimeout ttimeoutlen=30
@@ -408,3 +408,5 @@ let g:OmniSharp_highlight_groups = {
 \ 'ExcludedCode': 'NonText'
 \}
 " }}}
+
+au BufWrite * :Autoformat
