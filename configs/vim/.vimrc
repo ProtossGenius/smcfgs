@@ -55,7 +55,7 @@ Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'maximbaz/lightline-ale'
 " Snippet support
 if s:using_snippets
-  Plug 'sirver/ultisnips'
+    Plug 'sirver/ultisnips'
 endif
 call plug#end()
 
@@ -63,7 +63,7 @@ call plug#end()
 map <F7> :NERDTreeMirror<CR>
 map <F7> :NERDTreeToggle<CR>
 
-" 	asyncrun 
+"   asyncrun
 " 自动打开 quickfix window ，高度为 6
 "" let g:asyncrun_open = 6
 "
@@ -73,12 +73,12 @@ map <F7> :NERDTreeToggle<CR>
 " " 设置 F10 打开/关闭 Quickfix 窗口
 "nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
 "nnoremap <F5> :w<CR>:AsyncRun -mode=term -pos=tab make qrun<CR>
-"nnoremap <F6> :w<CR>:AsyncRun -mode=term -pos=tab make 
+"nnoremap <F6> :w<CR>:AsyncRun -mode=term -pos=tab make
 "nnoremap <F8> :w<CR>:AsyncRun -mode=term -pos=tab make test<CR>
 "nnoremap <F9> :w<CR>:AsyncRun -mode=term -pos=ta  make debug<CR>
 
 nnoremap <F5> :w<CR>:!make qrun<CR>
-nnoremap <F6> :w<CR>:!make 
+nnoremap <F6> :w<CR>:!make
 nnoremap <F8> :w<CR>:!make test<CR>
 nnoremap <F9> :w<CR>:!make debug<CR>
 nnoremap <F10>   <Esc>:w<CR>g<C-g>
@@ -100,14 +100,14 @@ let g:airline#extensions#ale#enabled = 1
 " linters
 "----------------------------------------------------------------------
 let g:ale_linters = {
-			\ 'c': ['gcc', 'cppcheck'], 
-			\ 'cpp': ['gcc', 'cppcheck'], 
-			\ 'python': ['flake8', 'pylint'], 
-			\ 'lua': ['luac'], 
-			\ 'go':['golangci-lint', 'golint', 'go vet', 'go build'],
-			\ 'java': ['javac'],
-			\ 'javascript': ['eslint'], 
-			\ }
+            \ 'c': ['gcc', 'cppcheck'],
+            \ 'cpp': ['gcc', 'cppcheck'],
+            \ 'python': ['flake8', 'pylint'],
+            \ 'lua': ['luac'],
+            \ 'go':['golangci-lint', 'golint', 'go vet', 'go build'],
+            \ 'java': ['javac'],
+            \ 'javascript': ['eslint'],
+            \ }
 
 let g:ale_c_gcc_options = '-Wall -Werror -O2 -std=c99'
 " when check cpp20 should add -std=c++2a -fcoroutines
@@ -120,22 +120,22 @@ let g:ale_go_golangci_lint_package  = 1
 " let g:ale_linters.lua += ['luacheck']
 
 if executable('gcc') == 0 && executable('clang')
-	let g:ale_linters.c += ['clang']
-	let g:ale_linters.cpp += ['clang']
+    let g:ale_linters.c += ['clang']
+    let g:ale_linters.cpp += ['clang']
 endif
 
 
 " "普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
- nmap sp <Plug>(ale_previous_wrap)
- nmap sn <Plug>(ale_next_wrap)
+nmap sp <Plug>(ale_previous_wrap)
+nmap sn <Plug>(ale_next_wrap)
 
 let mapleader = ","
 " "<Leader>s触发/关闭语法检查
- nmap <Leader>s :ALEToggle<CR>
+nmap <Leader>s :ALEToggle<CR>
 " "<Leader>d查看错误或警告的详细信息
- nmap <Leader>d :ALEDetail<CR>
+nmap <Leader>d :ALEDetail<CR>
 " do vsplit
- nmap <Leader>sv :vsplit<CR>
+nmap <Leader>sv :vsplit<CR>
 
 " screen jump
 let mapleader = "`"
@@ -180,7 +180,7 @@ let g:gutentags_ctags_extra_args += ['--c-kinds=+px', '--output-format=e-ctags']
 
 " 检测 ~/.cache/tags 不存在就新建
 if !isdirectory(s:vim_tags)
-   silent! call mkdir(s:vim_tags, 'p')
+    silent! call mkdir(s:vim_tags, 'p')
 endif
 
 
@@ -228,7 +228,7 @@ let g:go_highlight_extra_types = 1
 let g:go_highlight_generate_tags = 1
 let g:echodoc#enable_at_startup = 1
 "配置
-" let g:clang_format#auto_format_on_insert_leave=1	"退出插入模式时自动格式化
+" let g:clang_format#auto_format_on_insert_leave=1  "退出插入模式时自动格式化
 
 function! Terminal_MetaMode()
     set ttimeout ttimeoutlen=30
@@ -243,9 +243,9 @@ function! Terminal_MetaMode()
     endfor
     for i in range(26)
         call s:metacode(nr2char(char2nr('a') + i))
-		if i != 14
-			call s:metacode(nr2char(char2nr('A') + i))
-		endif
+        if i != 14
+            call s:metacode(nr2char(char2nr('A') + i))
+        endif
     endfor
 
 endfunc
@@ -292,20 +292,20 @@ set updatetime=1000
 
 " Colors: {{{
 augroup ColorschemePreferences
-  autocmd!
-  " These preferences clear some gruvbox background colours, allowing transparency
-  autocmd ColorScheme * highlight Normal     ctermbg=NONE guibg=NONE
-  autocmd ColorScheme * highlight SignColumn ctermbg=NONE guibg=NONE
-  autocmd ColorScheme * highlight Todo       ctermbg=NONE guibg=NONE
-  " Link ALE sign highlights to similar equivalents without background colours
-  autocmd ColorScheme * highlight link ALEErrorSign   WarningMsg
-  autocmd ColorScheme * highlight link ALEWarningSign ModeMsg
-  autocmd ColorScheme * highlight link ALEInfoSign    Identifier
+    autocmd!
+    " These preferences clear some gruvbox background colours, allowing transparency
+    autocmd ColorScheme * highlight Normal     ctermbg=NONE guibg=NONE
+    autocmd ColorScheme * highlight SignColumn ctermbg=NONE guibg=NONE
+    autocmd ColorScheme * highlight Todo       ctermbg=NONE guibg=NONE
+    " Link ALE sign highlights to similar equivalents without background colours
+    autocmd ColorScheme * highlight link ALEErrorSign   WarningMsg
+    autocmd ColorScheme * highlight link ALEWarningSign ModeMsg
+    autocmd ColorScheme * highlight link ALEInfoSign    Identifier
 augroup END
 
 " Use truecolor in the terminal, when it is supported
 if has('termguicolors')
-  set termguicolors
+    set termguicolors
 endif
 
 set background=dark
@@ -336,42 +336,42 @@ let g:sharpenup_statusline_opts = { 'Text': '%s (%p/%P)' }
 let g:sharpenup_statusline_opts.Highlight = 0
 
 augroup OmniSharpIntegrations
-  autocmd!
-  autocmd User OmniSharpProjectUpdated,OmniSharpReady call lightline#update()
+    autocmd!
+    autocmd User OmniSharpProjectUpdated,OmniSharpReady call lightline#update()
 augroup END
 " }}}
 
 " Lightline: {{{
 let g:lightline = {
-\ 'colorscheme': 'gruvbox',
-\ 'active': {
-\   'right': [
-\     ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok'],
-\     ['lineinfo'], ['percent'],
-\     ['fileformat', 'fileencoding', 'filetype', 'sharpenup']
-\   ]
-\ },
-\ 'inactive': {
-\   'right': [['lineinfo'], ['percent'], ['sharpenup']]
-\ },
-\ 'component': {
-\   'sharpenup': sharpenup#statusline#Build()
-\ },
-\ 'component_expand': {
-\   'linter_checking': 'lightline#ale#checking',
-\   'linter_infos': 'lightline#ale#infos',
-\   'linter_warnings': 'lightline#ale#warnings',
-\   'linter_errors': 'lightline#ale#errors',
-\   'linter_ok': 'lightline#ale#ok'
-  \  },
-  \ 'component_type': {
-  \   'linter_checking': 'right',
-  \   'linter_infos': 'right',
-  \   'linter_warnings': 'warning',
-  \   'linter_errors': 'error',
-  \   'linter_ok': 'right'
-\  }
-\}
+            \ 'colorscheme': 'gruvbox',
+            \ 'active': {
+            \   'right': [
+            \     ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok'],
+            \     ['lineinfo'], ['percent'],
+            \     ['fileformat', 'fileencoding', 'filetype', 'sharpenup']
+            \   ]
+            \ },
+            \ 'inactive': {
+            \   'right': [['lineinfo'], ['percent'], ['sharpenup']]
+            \ },
+            \ 'component': {
+            \   'sharpenup': sharpenup#statusline#Build()
+            \ },
+            \ 'component_expand': {
+            \   'linter_checking': 'lightline#ale#checking',
+            \   'linter_infos': 'lightline#ale#infos',
+            \   'linter_warnings': 'lightline#ale#warnings',
+            \   'linter_errors': 'lightline#ale#errors',
+            \   'linter_ok': 'lightline#ale#ok'
+            \  },
+            \ 'component_type': {
+            \   'linter_checking': 'right',
+            \   'linter_infos': 'right',
+            \   'linter_warnings': 'warning',
+            \   'linter_errors': 'error',
+            \   'linter_ok': 'right'
+            \  }
+            \}
 " Use unicode chars for ale indicators in the statusline
 let g:lightline#ale#indicator_checking = "\uf110 "
 let g:lightline#ale#indicator_infos = "\uf129 "
@@ -383,30 +383,30 @@ let g:lightline#ale#indicator_ok = "\uf00c "
 " OmniSharp: {{{
 let g:OmniSharp_popup_position = 'peek'
 if has('nvim')
-  let g:OmniSharp_popup_options = {
-  \ 'winhl': 'Normal:NormalFloat'
-  \}
+    let g:OmniSharp_popup_options = {
+                \ 'winhl': 'Normal:NormalFloat'
+                \}
 else
-  let g:OmniSharp_popup_options = {
-  \ 'highlight': 'Normal',
-  \ 'padding': [0, 0, 0, 0],
-  \ 'border': [1]
-  \}
+    let g:OmniSharp_popup_options = {
+                \ 'highlight': 'Normal',
+                \ 'padding': [0, 0, 0, 0],
+                \ 'border': [1]
+                \}
 endif
 let g:OmniSharp_popup_mappings = {
-\ 'sigNext': '<C-n>',
-\ 'sigPrev': '<C-p>',
-\ 'pageDown': ['<C-f>', '<PageDown>'],
-\ 'pageUp': ['<C-b>', '<PageUp>']
-\}
+            \ 'sigNext': '<C-n>',
+            \ 'sigPrev': '<C-p>',
+            \ 'pageDown': ['<C-f>', '<PageDown>'],
+            \ 'pageUp': ['<C-b>', '<PageUp>']
+            \}
 
 if s:using_snippets
-  let g:OmniSharp_want_snippet = 1
+    let g:OmniSharp_want_snippet = 1
 endif
 
 let g:OmniSharp_highlight_groups = {
-\ 'ExcludedCode': 'NonText'
-\}
+            \ 'ExcludedCode': 'NonText'
+            \}
 " }}}
 
-au BufWrite * :Autoformat
+" au BufWrite * :Autoformat

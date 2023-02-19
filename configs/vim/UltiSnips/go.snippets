@@ -12,6 +12,16 @@ func $1(${3:params})${4/(.+)/ /}${4:returns} {
 }
 endsnippet
 
+snippet hfunc "HTTPFunction" b
+// ${1:func_name} ${2:comments}.
+// @SMIST httpRegister(base + "/$1", package + "$1")
+func $1(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()
+	${0:${VISUAL}}
+}
+endsnippet
+
+
 snippet check "check" b
 func ${1:check}(err error){
 	if err != nil{
@@ -42,18 +52,18 @@ endsnippet
 # Mostly converted from: https://github.com/AlanQuatermain/go-tmbundle
 snippet /^cons/ "Constants declaration" r
 const (
-	// ${1:constant} ${2:comments}.
-	$1 ${3/(.+)/ /}${3:type} = ${4:value}
-	${0}
-)
+		// ${1:constant} ${2:comments}.
+		$1 ${3/(.+)/ /}${3:type} = ${4:value}
+		${0}
+	  )
 endsnippet
 
 snippet iota "Iota constant generator" b
 const (
-	// ${1:constant} ${2}.
-	$1 ${3/(.+)/ /}${3:constan_type} = iota
-	${0}
-)
+		// ${1:constant} ${2}.
+		$1 ${3/(.+)/ /}${3:constan_type} = iota
+		${0}
+	  )
 endsnippet
 
 snippet struct "Struct declaration" b
@@ -78,7 +88,7 @@ endsnippet
 
 snippet switch "Switch statement" b
 switch ${1:expression}${1/(.+)/ /}{
-case$0
+	case$0
 }
 endsnippet
 
@@ -110,21 +120,19 @@ endsnippet
 
 snippet vars "Variables declaration" b
 var (
-	${1:name}${2/(.+)/ /}${2:type}${3: = ${0:value} }
-)
-endsnippet
+		${1:name}${2/(.+)/ /}${2:type}${3: = ${0:value} }
+	)
+	endsnippet
 
-snippet json "JSON field"
-\`json:"${1:displayName}"\`
-endsnippet
+	snippet json "JSON field"
+	\`json:"${1:displayName}"\`
+	endsnippet
 
-# vim:ft=snippets:
 
-# error handling
-snippet err "Basic error handling" b
-if err != nil {
-	log.${1:Fatal}(err)
-}
+	snippet err "Basic error handling" b
+	if err != nil {
+		log.${1:Fatal}(err)
+	}
 endsnippet
 
 snippet errp "error panic" b
