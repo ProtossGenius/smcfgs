@@ -8,6 +8,8 @@ set ts=4
 set sw=4
 set backspace=2
 set noshowmode
+set cursorcolumn  " 高亮光标列
+set cursorline    " 高亮光标行
 call plug#begin('~/.vim/plugged')
 " Plug 'rhysd/vim-clang-format'
 Plug 'mhinz/vim-signify'
@@ -28,6 +30,7 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-syntax'
+Plug 'whatyouhide/vim-textobj-xmlattr'
 Plug 'kana/vim-textobj-function', { 'for':['c', 'cpp', 'vim', 'java'] }
 Plug 'sgur/vim-textobj-parameter'
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -409,4 +412,10 @@ let g:OmniSharp_highlight_groups = {
             \}
 " }}}
 
-" au BufWrite * :Autoformat
+au BufWrite *.c :Autoformat
+au BufWrite *.cpp :Autoformat
+au BufWrite *.h :Autoformat
+au BufWrite *.hpp :Autoformat
+au BufWrite *.cc :Autoformat
+au BufWrite *.cxx :Autoformat
+au BufWrite *.hxx :Autoformat

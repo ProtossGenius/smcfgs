@@ -15,8 +15,7 @@ endsnippet
 snippet hfunc "HTTPFunction" b
 // ${1:func_name} ${2:comments}.
 // @SMIST httpRegister(base + "/$1", package + "$1")
-func $1(w http.ResponseWriter, r *http.Request) {
-	r.ParseForm()
+func $1(w http.ResponseWriter, r *http.Request) (interface{}, error){
 	${0:${VISUAL}}
 }
 endsnippet
