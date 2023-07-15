@@ -11,6 +11,7 @@ set noshowmode
 set cursorcolumn  " 高亮光标列
 set cursorline    " 高亮光标行
 call plug#begin('~/.vim/plugged')
+Plug 'voldikss/vim-translator'
 " Plug 'rhysd/vim-clang-format'
 Plug 'mhinz/vim-signify'
 Plug 'vim-airline/vim-airline'
