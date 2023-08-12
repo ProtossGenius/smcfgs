@@ -1,0 +1,16 @@
+#  This file is part of shadowsocks-rust.
+#
+#  This is a template unit file. Users may copy and rename the file into
+#  config directories to make new service instances. See systemd.unit(5)
+#  for details.
+
+[Unit]
+Description=Kcptun for 
+After=network.target
+
+[Service]
+Type=simple
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+ExecStart=/home/suremoon/gopath/bin/kcptun-client -l :7521 -r "45.77.69.76:37522" -dscp 46 -key srj7758521.  -mtu 1400 -sndwnd 256 -rcvwnd 2048 -mode fast2 -crypt=aes -keepalive=10
+[Install]
+WantedBy=multi-user.target

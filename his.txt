@@ -1,0 +1,831 @@
+  vim ~/.oh-my-zsh/plugins/git/git.plugin.zsh
+  reboot
+  ls
+  rm amdgpu-install_5.*
+  rm zshins.sh
+  rm -r anaconda3
+  rm -rf anaconda3
+  sudo vim /etc/apt/sources.list
+  sudo apt update
+  sudo apt upgrade -y
+  reboot
+  cd gh
+  ls
+  cd gopath
+  mkdir -p src/github.com/ProtossGenius/
+  ln -s gopath/src/github.com/ProtssGenius
+  ls
+  rm ProtssGenius
+  ln -s ghpg gopath/src/github.com/ProtssGenius
+  cd ..
+  ln -s ghpg gopath/src/github.com/ProtssGenius
+  ls
+  rm gopath/src/github.com/ProtssGenius
+  ln -s gopath/src/github.com/ProtossGenius ghpg
+  cd ghpg
+  ls
+  mkdir ucp
+  cd ucp
+  ls
+  git init
+  ls
+  mkdir modules
+  mkdir systems
+  ls
+  vim systems/UdpServer.as
+  smcfg
+  go
+  vim /etc/profile.d/go.sh
+  echo $PATH
+  vim ~/.bashrc
+  ls
+  source /etc/profile.d/go.sh
+  go --version
+  go
+  exit
+  ls
+  vim ~/.zshrc
+  go version
+  smcfg -update configs/vim
+  sudo apt-get install build-essential -y
+  sudo apt autoremove
+  ls
+  cmake
+  sudo apt-get install cmake
+  smcfg -update configs/vim
+  sudo apt-get install nodejs
+  cd ~/.vim/plugged/YouCompleteMe
+  cat ~/.smcfg/configs/vim/update.sh
+  fq ./install.py --all
+  source ~/.zshrc
+  fq ./install.py --all
+  vim ~/.zshrc
+  source ~/.zshrc
+  fq ./install.py --all
+  npm
+  node
+  cd ~/.vim/plugged/YouCompleteMe
+  sudo apt-get install npm -y
+  npm config set registry https://registry.npmmirror.com
+  fq ./install.py --all
+  source ~/.zshrc
+  fq ./install.py --all
+  fq curl google.com
+  exit
+  ./install.py --all
+  fq ./install.py --all
+  ./install.py --all
+  vim ./install.py
+  ./install.py --all
+  fq ./install.py --all
+  npm config
+  npm config list
+  npm config set proxy http://localhost:8118
+  npm config set registry https://registry.npmjs.org/
+  fq ./install.py --all
+  sudo apt-get install openjdk-17-jdk
+  java --version
+  javac --version
+  fq ./install.py --all
+  cd -
+  ls
+  cd ghpg/ucp/
+  ls
+  vim
+  shutdown -h now
+  ls
+  cd wo
+  mkdir workspace
+  cd workspace
+  ls
+  mkdir -p cpp/quick_queue
+  cd cpp/quick_queue
+  ls
+  touch .root
+  ls
+  cmake --version
+  ls
+  ls ~/.ssh
+  cat ~/.ssh/id_rsa.pub
+  fq curl google.com
+  _ifconfig
+  ifconfig
+  sudo apt install libnet-ifconfig-wrapper-perl
+  vim ~/.ssh/config
+  ssh los
+  ssh-copy-id los
+  ssh los
+  vim /etc/systemd/system/kcptun.service
+  sudo vim /etc/systemd/system/kcptun.service
+  sudo systemctl daemon-reload
+  sudo systemctl restart kcptun.service
+  fq curl google.com
+  ssh los
+  fq curl google.com
+  exit
+  ls
+  vim quick_queue.h
+  ls
+  vim quick_queue.h
+  ls
+  cd stable-diffusion-webui
+  ls
+  sh webui-user.
+  sh webui-user.sh
+  sh webui.sh
+  ./webui.sh
+  ls
+  cd ..
+  ls
+  cd ~/Downloads
+  ls
+  cd stable-diffusion
+  ls
+  history
+  history| grep img
+  ls
+  export HSA_OVERRIDE_GFX_VERSION=10.3.0
+  python3 scripts/txt2img.py --prompt "a photograph of an astronaut riding a horse" --plms
+  cd ~
+  ls
+  conda
+  ls
+  ls Downloads
+  ls
+  sl workspace
+  ls
+  ls workspace
+  ls Templates
+  sudo apt-get install conda
+  ls Downloads
+  find . -name 'Anaconda*'
+  sudo chomod +x Downloads/Anaconda3-2023.07-1-Linux-x86_64.sh
+  sudo chomd +x Downloads/Anaconda3-2023.07-1-Linux-x86_64.sh
+  sudo chmod +x Downloads/Anaconda3-2023.07-1-Linux-x86_64.sh
+  ./Downloads/Anaconda3-2023.07-1-Linux-x86_64.sh
+  ls
+  conda
+  vim /etc/profile.d/localpath.sh
+  source /etc/profile.d/localpath.sh
+  conda
+  cd Downloads/stable-diffusion
+  ls
+  conda activate ldm
+  conda env create -f environment.yaml
+  reboot
+  ls
+  sudo vim /etc/systemd/system/kcptun.service
+  sudo systemctl daemon-reload&& sudo systemctl restart kcptun.service
+  fq curl google.com
+  cd ghpg
+  git clone git@github.com:ProtossGenius/ChildMapReduce.git
+  cat ~/.ssh/id_rsa.pub
+  git clone git@github.com:ProtossGenius/ChildMapReduce.git
+  cd ChildMapReduce
+  make qrun
+  ls
+  mkdir build
+  make qrun
+  ls
+  cd build
+  ls
+  rm -rf ./*
+  fq cmake -DCMAKE_BUILD_TYPE=Debug ..
+  make -j24
+  ls
+  cd ..
+  ls
+  vim CMakeLists.txt
+  brew
+  cd /tmp
+  mv ~/Downloads/leveldb-1.23.tar.gz ./
+  tar -zxvf leveldb-1.23.tar.gz
+  cd leveldb-1.23
+  ls
+  mkdir build
+  cd build
+  cmake -DCMAKE_BUILD_TYPE=Release .. && cmake --build .
+  cd ..
+  rm -rf leveldb-1.23*
+  git clone --recurse-submodules https://github.com/google/leveldb.git
+  fq git clone --recurse-submodules https://github.com/google/leveldb.git
+  mkdir -p build && cd build\ncmake -DCMAKE_BUILD_TYPE=Release .. && cmake --build .
+  cd ..
+  cd leveldb
+  mkdir -p build && cd build\ncmake -DCMAKE_BUILD_TYPE=Release .. && cmake --build .
+  make install
+  sudo make install
+  cd ~/ghpg/ChildMapReduce
+  ls
+  cd build
+  cd ..
+  make qrun
+  sudo apt-get install libboost1.74-all-dev
+  sudo bash -c "cat << EOF > /etc/apt/sources.list && apt update \ndeb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse\n# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse\ndeb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse\n# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse\ndeb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse\n# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse\ndeb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted universe multiverse\n# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted universe multiverse\nEOF"
+  sudo apt-get install libboost1.74-all-dev -y
+  sudo apt upgrade
+  sudo bash -c "cat << EOF > /etc/apt/sources.list && apt update \ndeb http://mirrors.163.com/ubuntu/ jammy main restricted universe multiverse\ndeb http://mirrors.163.com/ubuntu/ jammy-security main restricted universe multiverse\ndeb http://mirrors.163.com/ubuntu/ jammy-updates main restricted universe multiverse\ndeb http://mirrors.163.com/ubuntu/ jammy-proposed main restricted universe multiverse\ndeb http://mirrors.163.com/ubuntu/ jammy-backports main restricted universe multiverse\ndeb-src http://mirrors.163.com/ubuntu/ jammy main restricted universe multiverse\ndeb-src http://mirrors.163.com/ubuntu/ jammy-security main restricted universe multiverse\ndeb-src http://mirrors.163.com/ubuntu/ jammy-updates main restricted universe multiverse\ndeb-src http://mirrors.163.com/ubuntu/ jammy-proposed main restricted universe multiverse\ndeb-src http://mirrors.163.com/ubuntu/ jammy-backports main restricted universe multiverse\nEOF"
+  sudo apt upgrade
+  sudo vim /etc/apt/sources.list
+  sudo touch /etc/apt/apt.conf.d/proxy.conf
+  sudo vim /etc/apt/apt.conf.d/proxy.conf
+  sudo apt update
+  sudo apt upgrade 
+  sudo apt-get install libboost1.74-all-dev -y
+  sudo apt-get --fix-broken
+  sudo apt --fix-broken install
+  sudo apt-get upgrade
+  sudo apt-get install libboost1.74-all-dev -y
+  sudo apt-get purge libicu-dev -y
+  sudo apt-get purge libicu -y
+  sudo apt --fix-broken install libboost1.74-all-dev -y
+  sudo apt purge libicu-dev libicu
+  sudo apt update
+  sudo apt install libicu-dev libicu
+  sudo apt install libicu-dev
+  sudo apt install libicu70=70.1-2
+  sudo apt --fix-broken install libboost1.74-all-dev -y
+  cd build
+  cd ..
+  make qrun
+  ls
+  vim mstr.cpp
+  vim master.cpp
+  ls
+  vim unit_test/mapreduce_test.cc
+  reboot
+  ls
+  cd ghpg/ucp
+  ls
+  vim systems/sender.pgl
+  ehco $VIMHOME
+  echo $VIMHOME
+  echo $VIMRUNTIME
+  mkdir -p ~/.vim/syntax
+  vim ~/.vim/syntax/pgl.vim
+  vim ~/.vim/plugged/ultisnips/syntax/snippets.vim
+  vim ~/.vim/syntax/pgl.vim
+  ls
+  vim systems/sender.pgl
+  vim ~/.vimrc
+  vim ./systems/sender.pgl
+  mkdir -p ~/.vim/ftdetect
+  vim ~/.vimrc
+  vim ~/.vim/ftdetect/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  ls
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim ~/.vim/syntax/pgl.vim
+  vim systems/sender.pgl
+  vim h.cpp
+  ls
+  git status
+  ls
+  shutdown -h now
+  cd ghpg/
+  ls
+  sudo vim /etc/systemd/system/kcptun.service
+  sudo systemctl daemon-reload
+  sudo systemctl restart kcptun.service
+  fq git clone git@github.com:ProtossGenius/moon-engine.git
+  ls
+  cd moon-engine
+  ls
+  make qrun
+  sudo apt-get install libglew-dev
+  make qrun
+  sudo apt-get install libglfw3-dev
+  sudo apt-get install libglm-dev
+  make qrun
+  find .  -name 'imgui*'
+  sudo apt-get install libimgui-dev -y
+  make qrun
+  vim oogl/init.cpp
+  ls
+  git checkout .
+  vim oogl/init.cpp
+  git checkout .
+  sudo apt-get purge libimgui-dev:amd64
+  sudo apt-get purge libimgui-dev
+  reboot
+  sudo reboot
+  sudo apt-get install libimgui-dev -y
+  cd /usr/include/imgui
+  sudo cp backends/imgui_impl_glfw.h ./
+  sudo cp backends/imgui_impl_opengl3.h ./
+  cd ~/ghpg/moon-engine
+  make qrun
+  ls
+  vim README.md
+  ls
+  history| grep imgui
+  vim README.md
+  ls
+  make qrun
+  ls
+  vim tests/app.h
+  git checkout .
+  vim tests/app.h
+  ls
+  vim Application.cpp
+  git checkout .
+  git status
+  make qrun
+  shutdown -h now
+  cd ghpg
+  ls
+  cd moon-engine
+  ls
+  vim oogl/Window.cpp
+  smgit 
+  git status
+  git diff
+  git add .
+  git commit -m "some thing about 3D support.\n
+  git diff
+  git diff head
+  git commit -m "some thing about 3D support.\n\n\nYes ortho means ortho."
+  git config --global user.email 'protossgenius@gmail.com'
+  git config --global user.name 'fake name'
+  git commit -m "some thing about 3D support.\n\n\nYes ortho means ortho."
+  git push
+  shutdown -h now
+  cd ghpg
+  cd moon-engine
+  ls
+  make qrun
+  vim tests/TestTexture2D.cpp
+  git diff
+  ls
+  cat format
+  ./format
+  python format
+  python ./format
+  pip3 install threadpool
+  python ./format
+  git diff
+  ls
+  vim tests/TestTexture2D.cpp
+  git diff
+  vim oogl/shape2d/triangle.cpp
+  ls
+  cd tests
+  ls
+  cp TestClearColor.h TestCamera.h
+  cp TestClearColor.cpp TestCamera.cpp
+  vim TestCamera.h
+  cd ..
+  vim tests/TestCamera.h
+  vim tests/TestClearColor.h
+  vim CMakeLists.txt
+  vim tests/CMakeLists.txt
+  vim tests/TestCamera.cpp
+  vim tests/Test.cpp
+  ./format
+  ls
+  git diff
+  smgit
+  cat README.md
+  cat Makefile
+  cat ~/.smcfg/init.sh
+  go install github.com/ProtossGenius/smntools/cmd/smgit@latest
+  ls
+  vim tests/TestCamera.h
+  vim oogl/Projection.h
+  vim oogl/View.h
+  smgit -m "update ."
+  make qrun
+  shutdown -h now
+  ls
+  cd workspace
+  ls
+  cd cpp
+  ls
+  cd ..
+  ls
+  cd ..
+  ls
+  cd  ghpg/moon-engine
+  ls
+  cd ..
+  ls
+  cd ChildMapReduce
+  ls
+  vim master.cpp
+  cd ~/workspace
+  ls
+  cd cpp
+  ls
+  cd quick_queue
+  ls
+  cd ..
+  ls
+  mkdir anytest
+  cd anytest
+  ls
+  vim main.cc
+  touch .root
+  vim main.cc
+  g++ -g main.cc 
+  ls
+  sudo apt-get install valgrind -y
+  valgrind --tool=memcheck --vgdb=yes ./a.out
+  gdb
+  ls
+  cat main.cc
+  ls
+  reboot
+  history | grep amdgpu
+  ls
+  shell
+  ls
+  cat ~/.bash_history
+  less ~/.bash_history
+  sudo dpkg-reconfigure  amdgpu
+  sudo dpkg-reconfigure  amdgpu-install
+  amdgpu-install -y --usecase=graphics,rocm --no-32
+  dkms status
+  dkms autoinstall
+  sudo dkms autoinstall
+  sudo apt-get install --reinstall dkms
+  sudo dkms autoinstall
+  for i in /var/lib/dkms/*/[^k]*/source; do [ -e "$i" ] || echo "$i";done
+  mv /var/lib/dkms/amdgpu/5.18.13-1528701.22.04/source /tmp/amdgpu_source
+  sudo mv /var/lib/dkms/amdgpu/5.18.13-1528701.22.04/source /tmp/amdgpu_source
+  sudo dkms autoinstall
+  amdgpu-install -y --usecase=graphics,rocm --no-32
+  reboot
+  sudo apt update
+  sudo apt  upgrate -y
+  sudo apt upgrade -y
+  cat /etc/os-release
+  sudo apt install update-manager-core -y
+  sudo vim /etc/update-manager/release-upgrades
+  sudo sed -i 's/jammy/lunar/g'
+  sudo sed -i 's/jammy/lunar/g' /etc/apt/sources.list
+  sudo apt update
+  sudo vim /etc/apt/sources.list
+  sudo apt update
+  cat /etc/os-release
+  ls
+  sudo vim /etc/apt/sources.list
+  sudo apt update
+  sudo            apt   upgrade -y
+  _iftop
+  ip -s link show eth0
+  ip -all
+  sudo            apt   upgrade -y
+  sudo dpkg --configure -a
+  sudo dkms autoinstall
+  dkms autoinstall
+  sudo dkms autoinstall
+  sudo dpkg --configure -a
+  sudo apt-get purge mesa-amdgpu-vdpau-drivers:amd64 -y
+  sudo apt-get update
+  sudo apt-get upgrade --fix -y
+  sudo apt-get upgrade-y
+  sudo apt-get upgrade -y
+  sudo apt-get install raspberrypi-kernel-headers -y
+  sudo apt autoremove
+  find . -name 'amdgpu*'
+  sudo vim /etc/apt/sources.list
+  sudo apt-get update
+  sudo apt-get upgrade -y
+  amdgpu-install
+  fq curl google.com
+  cat /var/lib/dkms/amdgpu/6.0.5-1607507.22.04/build/make.log
+  sudo vim /var/lib/dkms/amdgpu/6.0.5-1607507.22.04/build/amd/amdgpu/amdgpu_fb.c
+  fg
+  sudo vim /var/lib/dkms/amdgpu/6.0.5-1607507.22.04/build/amd/amdgpu/amdgpu_fb.c
+  amdgpu-install -y --usecase=graphics,rocm --no-32
+  cat /var/lib/dkms/amdgpu/6.0.5-1607507.22.04/build/make.log
+  sudo apt-get purge amdgpu-* -y
+  sudo apt-get purge amdgpu- -y
+  find /etc -name 'dkms.conf'
+  sudo vim /etc/modprobe.d/dkms.conf
+  sudo dpkg -r linux-modules-6.2.12-060212-generic linux-headers-6.2.12-060212-generic linux-image-unsigned-6.2.12-060212-generic linux-headers-6.2.12-060212
+  sudo dpkg -l | grep "Linux kernel"
+  dkms status
+  sudo dkms remove amdgpu/6.0.5-1607507.22.04
+  sudo dpkg -r linux-modules-6.2.12-060212-generic linux-headers-6.2.12-060212-generic linux-image-unsigned-6.2.12-060212-generic linux-headers-6.2.12-060212
+  sudo apt-get upgrade -y
+  reboot
+  cat /etc/os-release
+  sudo apt-get update
+  sudo apt-get upgrade -y
+  sudo apt autoremove -y
+  sudo apt-get --with-new-pkgs upgrade -y
+  sudo apt-get upgrade -y
+  sudo apt autoremove -y
+  sudo apt-get install  cheese cups cups-browsed cups-bsd cups-client cups-core-drivers cups-daemon cups-filters cups-filters-core-drivers cups-ipp-utils duplicity eog evince evolution-data-server fcitx5-data\n  fcitx5-module-pinyinhelper fcitx5-module-punctuation fcitx5-modules fcitx5-pinyin fcitx5-table fwupd ghostscript ghostscript-x gir1.2-gnomedesktop-3.0 gir1.2-rb-3.0 gir1.2-totem-1.0\n  gnome-calendar gnome-characters gnome-control-center gnome-control-center-data gnome-desktop3-data gnome-initial-setup gnome-remote-desktop gnome-session-bin gnome-session-common\n  gnome-settings-daemon gnome-settings-daemon-common gnome-shell gnome-shell-common gnome-startup-applications gnome-todo hplip hplip-data ibus-libpinyin libboost-atomic1.74-dev\n  libboost-atomic1.74.0 libboost-chrono1.74-dev libboost-chrono1.74.0 libboost-container1.74-dev libboost-container1.74.0 libboost-context1.74-dev libboost-context1.74.0\n  libboost-coroutine1.74-dev libboost-coroutine1.74.0 libboost-date-time1.74-dev libboost-date-time1.74.0 libboost-exception1.74-dev libboost-fiber1.74-dev libboost-fiber1.74.0\n  libboost-filesystem1.74-dev libboost-filesystem1.74.0 libboost-graph-parallel1.74-dev libboost-graph-parallel1.74.0 libboost-graph1.74-dev libboost-graph1.74.0 libboost-iostreams1.74-dev\n  libboost-iostreams1.74.0 libboost-locale1.74-dev libboost-locale1.74.0 libboost-log1.74-dev libboost-log1.74.0 libboost-math1.74-dev libboost-math1.74.0 libboost-mpi-python1.74-dev\n  libboost-mpi-python1.74.0 libboost-mpi1.74-dev libboost-mpi1.74.0 libboost-numpy1.74-dev libboost-numpy1.74.0 libboost-program-options1.74-dev libboost-program-options1.74.0\n  libboost-python1.74-dev libboost-python1.74.0 libboost-random1.74-dev libboost-random1.74.0 libboost-regex1.74-dev libboost-regex1.74.0 libboost-serialization1.74-dev\n  libboost-serialization1.74.0 libboost-stacktrace1.74-dev libboost-stacktrace1.74.0 libboost-system1.74-dev libboost-system1.74.0 libboost-test1.74-dev libboost-test1.74.0\n  libboost-thread1.74-dev libboost-thread1.74.0 libboost-timer1.74-dev libboost-timer1.74.0 libboost-type-erasure1.74-dev libboost-type-erasure1.74.0 libboost-wave1.74-dev\n  libboost-wave1.74.0 libboost1.74-dev libcheese-gtk25 libcheese8 libcups2 libcupsimage2 libevdocument3-4 libevview3-3 libfwupd2 libgs9-common libhpmud0 libime-bin libime-data\n  libime-data-language-model libimecore0 libimepinyin0 libimetable0 libldb2 libnode-dev libpinyin-data libpulse-mainloop-glib0 libpulse0 libpulsedsp libpython3-dev libpython3-stdlib\n  libreoffice-base-core libreoffice-calc libreoffice-common libreoffice-core libreoffice-draw libreoffice-gnome libreoffice-gtk3 libreoffice-help-common libreoffice-help-en-gb\n  libreoffice-help-en-us libreoffice-help-zh-cn libreoffice-impress libreoffice-l10n-en-gb libreoffice-l10n-en-za libreoffice-l10n-zh-cn libreoffice-math libreoffice-writer\n  librhythmbox-core10 libsane-hpaio libsmbclient libsource-highlight4v5 libspectre1 libtalloc2 libtevent0 libtotem0 libuno-cppuhelpergcc3-3 libwbclient0 nautilus nautilus-data\n  nautilus-share node-cacache node-chalk node-hosted-git-info node-lru-cache nodejs npm printer-driver-c2esp printer-driver-hpcups pulseaudio pulseaudio-module-bluetooth pulseaudio-utils\n  python3 python3-apt python3-brlapi python3-cairo python3-cffi-backend python3-cups python3-dbus python3-dev python3-distutils python3-gdbm python3-gi python3-gi-cairo python3-ldb\n  python3-lib2to3 python3-markupsafe python3-minimal python3-netifaces python3-pil python3-renderpm python3-reportlab python3-reportlab-accel python3-software-properties python3-systemd\n  python3-talloc python3-uno python3-yaml rhythmbox rhythmbox-plugins samba-libs software-properties-common software-properties-gtk totem totem-plugins ubuntu-desktop\n  ubuntu-desktop-minimal ubuntu-session uno-libs-private ure xdg-desktop-portal-gnome yaru-theme-gnome-shell -y
+  sudo apt-get update
+  sudo apt-get upgrade -y
+  sudo apt-get autoremove -y
+  sudo apt-get upgrade -y
+  sudo apt-get install fwupd ghostscript ghostscript-x ibus-libpinyin libfwupd2 libgs9-common libnode-dev libpinyin-data libspectre1 node-cacache node-chalk node-hosted-git-info node-lru-cache nodejs npm -y
+  sudo apt autoremove
+  reboot
+  sudo apt-get update
+  sudo apt-get upgrade -y
+  sudo apt-get remove gnome-shell
+  ls
+  sudo apt-get install gnome-shell -y
+  sudo systemctl restart gdm.service
+  sudo apt-get purge gnome -y
+  sudo apt-get purge gnome- -y
+  sudo apt-get remove gnome- -y
+  sudo apt-get purge gnome
+  sudo apt autoremove
+  reboot
+  sudo add-apt-repository ppa:kubuntu-ppa/backports
+  sudo add-apt-repository ppa:kubuntu-ppa/ppa
+  sudo apt-get update
+  sudo apt-get install kubuntu-desktop -y
+  sudo apt-get purge gnome-shell
+  sudo apt-get remove gnome -y
+  sudo apt-get purge gnome-*
+  sudo apt-get purge 'gnome-*'
+  sudo apt autoremove
+  sudo apt-get autoclean
+  sudo apt-get clean
+  reboot
+  sudo apt-get dist-upgrade -y
+  shutdown -h now
+  ls
+  cd ghpg
+  ls
+  cd moon-engine
+  make qrun
+  ls
+  mkdir engine
+  ls  smgame
+  cp smgame/CMakeLists.txt engine/
+  vim engine/CMakeLists.txt
+  cd engine
+  touch world.h
+  vim world.h
+  rm -rf .
+  cd ..
+  rm -rf engine
+  vim oogl/shape2d/triangle.h
+  vim ~/.zshrc
+  sudo apt-get update
+  sudo apt-get upgrade
+  ssh los
+  cat /etc/systemd/system/kcptun.service
+  ssh los
+  sudo vim /etc/systemd/system/kcptun.service
+  sudo systemctl daemon-reload
+  sudo systemctl restart kcptun.service
+  sudo apt-get upgrade
+  git status
+  vim oogl/shape2d/triangle.h
+  make qrun
+  ls
+  cd ghpg/moon-engine
+  ls
+  vim oogl/shape2d/triangle.cpp
+  fg
+  shutdown -h now
+  cd ghpg/moon-engine
+  ls
+  vim res/shaders/Basic.shader
+  git diff
+  smgit -m "Fix some bug, and reformat ."
+  reboot
+  ls
+  cd ghpg/moon-engine
+  ls
+  ls smgame
+  vim oogl/KeyMouse.cpp
+  ls
+  vim oogl/World.h
+  cat oogl/Window.h
+  vim  oogl/World.h
+  cp oogl/shape2d oogl/shape
+  cp -r oogl/shape2d oogl/shape
+  vim oogl/shape/CMakeLists.txt
+  vim CMakeLists.txt
+  vim oogl/shape/shape.h
+  cd oogl/shape/
+  ls
+  rm animation.* rectangle.* triangle.*
+  ls
+  vim vec2d.h
+  rm vec2d.h
+  ls
+  vim shape.h
+  cd ..
+  ls
+  vim oogl/shape/shape.h
+  sudo vim /etc/systemd/system/kcptun.service
+  sudo systemctl daemon-reload
+  sudo systemctl restart kcptun.service
+  fq curl google.com
+  ls
+  vim oogl/shape/shape.h
+  vim oogl/shape/shape.cpp
+  make qrun
+  vim oogl/CMakeLists.txt
+  mv oogl/shape2d oogl/s2d
+  make qrun
+  cd build
+  make clean
+  cd ..
+  make qrun
+  ls
+  vim CMakeLists.txt
+  ls
+  mv oogl/s2d oogl/shape2d
+  vim oogl/CMakeLists.txt
+  make qrun
+  vim oogl/shape/shape.cpp
+  make qrun
+  cd oogl/shape/
+  cd -
+  vim oogl/shape/shape.h
+  vim oogl/shape/mesh.h
+  cp oogl/shape/shape.h oogl/shape/mesh.h
+  vim oogl/shape/mesh.h
+  mv oogl/shape/shape.h oogl/shape/unit.h
+  vim oogl/shape/shape.cpp oogl/shape/unit.cpp
+  cd oogl/shape
+  ls
+  vim mesh.h
+  vim shape.cpp
+  mv shape.cpp unit.cpp
+  vim unit.h
+  ls
+  vim mesh.h
+  cd ..
+  ls
+  mv shape shape3d
+  vim CMakeLists.txt
+  vim shape3d/CMakeLists.txt
+  vim ../CMakeLists.txt
+  vim shape3d/CMakeLists.txt
+  cd ..
+  ls
+  vim oogl/shape3d/mesh.h
+  diff
+  git diff
+  ls
+  vim oogl/shape3d/mesh.h
+  vim Application.cpp
+  git checkout Application.cpp
+  ls
+  shutdown -h now
+  ssh los
+  curl book.liedown.top
+  curl http://book.liedown.top/
+  curl https://book.liedown.top/
+  cat ~/.ssh/config
+  ssh-copy-id los
+  ssh-keygen -t rsa -C 'protossgenius@gmail.com'
+  ssh-keygen -f "/home/obliviate/.ssh/known_hosts" -R "45.77.69.76"
+  ssh-copy-id los
+  ssh los
+  cd .smcfg
+  mkdir programs/shadowsocks
+  smcfg -h
+  smcfg -create programs/sha
+  smcfg -create 'ppp'
+  ls
+  ls ppp
+  cd ppp
+  git status
+  sudo ls ppp
+  cd ppp
+  sudo rm -rf ppp
+  sudo rm -rf programs/sha
+  vim programs/shadowsocks/check.sh
+  sslocal
+  ls
+  cat /etc/systemd/system/shadowsocks.service
+  ls ~/.cargo/bin/sslocal
+  vim programs/shadowsocks/install.sh
+  vim programs/shadowsocks/check.sh
+  ls init.sh
+  cat init.sh
+  vim programs/ssserver/rely.list
+  vim programs/ssclient/rely.list
+  ls
+  vim programs/ssserver/install.sh
+  cp programs/ssclient/*.service programs/ssserver
+  vim programs/ssserver/shadowsocs.service
+  vim programs/ssserver/install.sh
+  vim programs/ssserver/rely.list
+  mkdir programs/kcptun
+  scp /usr/local/bin/kcptun-server los:/tmp/
+  git status
+  smgit -m 'update ss\n'
+  scp programs/ssserver/* los:/tmp/
+  git stash pop
+  scp programs/ssserver/* los:/tmp/
+  cat ~/.ssh/config
+  curl 45.77.69.76:9000
+  nc -u 45.77.69.76 9999
+  nc -zvu 45.77.69.76 9999
+  123231123
+  nc -zvu 45.77.69.76 9999
+  nc -zvu 45.77.69.76 8003
+  nc 45.77.69.76 3333
+  nc -zv 45.77.69.76 3333
+  ps -ef | grep kcptun
+  nc 127.0.0.1 7521
+  shutdown -h now
+  ssh los
+  ls
+  cd workspace
+  ls
+  git clone https://github.com/shadowsocks/simple-obfs.git\n
+  cd simple-obfs
+  git submodule update --init --recursive
+  ./autogen.sh
+  ./configure && make -j24
+  sudo apt-get install --no-install-recommends build-essential autoconf libtool libssl-dev libpcre3-dev libev-dev asciidoc xmlto automake
+  ./autogen.sh
+  ./configure && make -j24
+  pip3 install asciidoc
+  make -j24
+  sudo make install
+  obfs-server
+  ls
+  vim /etc/ss.clt.json
+  sudo vim /etc/ss.clt.json
+  systemctl restart shadowsocks.service
+  systemctl status shadowsocks.service
+  sudo vim /etc/ss.clt.json
+  systemctl restart shadowsocks.service
+  sudo systemctl restart shadowsocks.service
+  systemctl status shadowsocks.service
+  obfs-client
+  sudo vim /etc/ss.clt.json
+  sudo systemctl restart shadowsocks.service
+  systemctl status shadowsocks.service
+  fq curl google.com
+  sudo systemctl stop kcptun.service
+  sudo -i
+  ls
+  fq curl google.com
+  rm /usr/local/bin/kcptun-*
+  sudo rm /usr/local/bin/kcptun-*
+  ls
+  cd ~/.smcfg
+  ls
+  vim programs/shadowsocks/install.sh
