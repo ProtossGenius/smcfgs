@@ -4,8 +4,8 @@ set nocompatible
 set encoding=utf-8
 filetype off
 syntax enable
-set ts=4
-set sw=4
+set ts=2
+set sw=2
 set backspace=2
 set noshowmode
 set cursorcolumn  " 高亮光标列
@@ -24,7 +24,7 @@ Plug 'justinmk/vim-dirvish'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'Raimondi/delimitMate'
-Plug 'ycm-core/YouCompleteMe'
+ Plug 'ycm-core/YouCompleteMe'
 Plug 'dense-analysis/ale'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/asyncrun.vim'
@@ -57,10 +57,13 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'maximbaz/lightline-ale'
+" Plug 'neoclide/coc.nvim'
 " Snippet support
 if s:using_snippets
     Plug 'sirver/ultisnips'
 endif
+
+Plug 'mattn/emmet-vim'
 call plug#end()
 
 
@@ -140,7 +143,8 @@ nmap <Leader>s :ALEToggle<CR>
 nmap <Leader>d :ALEDetail<CR>
 " do vsplit
 nmap <Leader>sv :vsplit<CR>
-
+nmap <Leader>yg :YcmCompleter GoToDefinition<CR>
+nmap <Leader>ycr :YcmCompleter GoToCallers<CR>
 " screen jump
 let mapleader = "`"
 nmap <Leader><Right> <C-w><Right>
@@ -159,7 +163,7 @@ let g:ycm_server_log_level = 'info'
 let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_strings=1
-let g:ycm_key_invoke_completion = '<c-z>'
+let g:ycm_key_invoke_completion = '<M-w>'
 set completeopt=menu,menuone
 set number
 "noremap <c-z> <NOP>
@@ -190,7 +194,7 @@ endif
 
 let g:ycm_semantic_triggers =  {
             \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-            \ 'cs,lua,javascript': ['re!\w{2}'],
+            \ 'cs,css,lua,javascript,typescript,typescriptreact,javascriptreact': ['re!\w{2}'],
             \ }
 "LeaderF
 let g:Lf_ShortcutF = '<c-p>'
@@ -255,6 +259,13 @@ function! Terminal_MetaMode()
 endfunc
 call Terminal_MetaMode()
 
+
+autocmd FileType typescript,typescriptreact nmap <M-c> :YcmCompleter GoToCallers<CR>
+autocmd FileType typescript,typescriptreact nmap <M-e> :YcmCompleter GoToCallees<CR>
+autocmd FileType typescript,typescriptreact nmap <M-f> :YcmCompleter FixIt<CR>
+autocmd FileType typescript,typescriptreact nmap <M-g> :YcmCompleter GoToDefinition<CR>
+autocmd FileType typescript,typescriptreact nmap <M-r> :YcmCompleter RefactorRename 
+map <C-s> :w<CR>
 nnoremap j gj;
 nnoremap k gk;
 nnoremap <up> g<up>;
@@ -413,6 +424,29 @@ let g:OmniSharp_highlight_groups = {
             \}
 " }}}
 
+" 为 JSX 和 TSX 文件启用语法高亮
+filetype plugin indent on
+
+" 为 JSX 文件启用 Vim-jsx-pretty
+let g:jsx_pretty_enabled = 1
+
+" 为 TSX 文件启用 Vim-tsx-react
+let g:tsx_react_enabled = 1
+
+" 为 TypeScript 文件启用 YCM
+let g:ycm_auto_trigger = 1
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_use_clangd = 1
+"let g:coc_global_extensions = [
+"  \ 'coc-tsserver'
+"  \ ]
+"if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+"  let g:coc_global_extensions += ['coc-prettier']
+"endif
+"
+"if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+"  let g:coc_global_extensions += ['coc-eslint']
+"endif
 au BufWrite *.c :Autoformat
 au BufWrite *.cpp :Autoformat
 au BufWrite *.h :Autoformat
@@ -420,3 +454,5 @@ au BufWrite *.hpp :Autoformat
 au BufWrite *.cc :Autoformat
 au BufWrite *.cxx :Autoformat
 au BufWrite *.hxx :Autoformat
+au BufWrite *.ts :YcmCompleter Format
+au BufWrite *.tsx :YcmCompleter Format
