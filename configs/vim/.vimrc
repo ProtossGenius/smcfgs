@@ -62,14 +62,14 @@ Plug 'maximbaz/lightline-ale'
 if s:using_snippets
     Plug 'sirver/ultisnips'
 endif
-
 Plug 'mattn/emmet-vim'
 call plug#end()
 
 
+
+imap jj <ESC>
 map <F7> :NERDTreeMirror<CR>
 map <F7> :NERDTreeToggle<CR>
-
 "   asyncrun
 " 自动打开 quickfix window ，高度为 6
 "" let g:asyncrun_open = 6
@@ -194,7 +194,7 @@ endif
 
 let g:ycm_semantic_triggers =  {
             \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-            \ 'cs,css,lua,javascript,typescript,typescriptreact,javascriptreact': ['re!\w{2}'],
+            \ 'cs,css,less,lua,javascript,typescript,typescriptreact,javascriptreact': ['re!\w{2}'],
             \ }
 "LeaderF
 let g:Lf_ShortcutF = '<c-p>'
@@ -203,6 +203,7 @@ noremap <c-n> :LeaderfMru<cr>
 noremap <m-p> :LeaderfFunction!<cr>
 noremap <m-n> :LeaderfBuffer<cr>
 noremap <m-m> :LeaderfTag<cr>
+noremap <m-f> :Leaderf rg<cr>
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
@@ -262,10 +263,13 @@ call Terminal_MetaMode()
 
 autocmd FileType typescript,typescriptreact nmap <M-c> :YcmCompleter GoToCallers<CR>
 autocmd FileType typescript,typescriptreact nmap <M-e> :YcmCompleter GoToCallees<CR>
-autocmd FileType typescript,typescriptreact nmap <M-f> :YcmCompleter FixIt<CR>
+autocmd FileType typescript,typescriptreact nmap <Leader>f :YcmCompleter FixIt<CR>
 autocmd FileType typescript,typescriptreact nmap <M-g> :YcmCompleter GoToDefinition<CR>
 autocmd FileType typescript,typescriptreact nmap <M-r> :YcmCompleter RefactorRename 
 map <C-s> :w<CR>
+map <C-]> :YcmCompleter GoToDefinition<CR>
+map<M-t> :ter ++noclose<CR>
+
 nnoremap j gj;
 nnoremap k gk;
 nnoremap <up> g<up>;
@@ -422,6 +426,9 @@ endif
 let g:OmniSharp_highlight_groups = {
             \ 'ExcludedCode': 'NonText'
             \}
+
+let g:user_emmet_leader_key=','
+
 " }}}
 
 " 为 JSX 和 TSX 文件启用语法高亮
@@ -456,3 +463,5 @@ au BufWrite *.cxx :Autoformat
 au BufWrite *.hxx :Autoformat
 au BufWrite *.ts :YcmCompleter Format
 au BufWrite *.tsx :YcmCompleter Format
+au BufWrite *.css :Autoformat
+
