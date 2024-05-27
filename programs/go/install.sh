@@ -5,4 +5,4 @@ export PATH=$PATH:/usr/local/go/bin
 cp ~/.smcfg/programs/go/go.sh /tmp/go.sh
 sudo mv /tmp/go.sh  /etc/profile.d/go.sh
 go env -w GO111MODULE=on
-go env -w GOPROXY=https://goproxy.io,direct
+go env -w GOPROXY=https://goproxy.cn,direct

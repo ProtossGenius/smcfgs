@@ -1,5 +1,5 @@
 cd /tmp
-git clone https://github.com/universal-ctags/ctags.git
+git clone https://github.com/universal-ctags/ctags.git --depth 1
 cd ctags
 ./autogen.sh
 ./configure  # defaults to /usr/local
