@@ -1,0 +1,121 @@
+commit 15479c251cc3b98f9e35fcdb2ebc95a37ba41fa5
+Author: root <root@vultr.guest>
+Date:   Tue Sep 10 16:36:28 2024 +0000
+
+    fix bug about ssserver
+
+diff --git a/init.sh b/init.sh
+index 1b72e05..f022631 100644
+--- a/init.sh
++++ b/init.sh
+@@ -1,11 +1,10 @@
+ mkdir -p ~/data/programs
+ sh ./programs/go/install.sh
+ export PATH=$PATH:/usr/local/go/bin 
+-go install github.com/ProtossGenius/smntools/cmd/smcfg@latest
++/usr/local/go/bin/go install github.com/ProtossGenius/smntools/cmd/smcfg@latest
+ smcfg -install configs/vim 
+ echo "you should call this command by yourself"
+ echo "source /etc/profile.d/go.sh"
+ #smcfg -install responses
+ #smcfg -install configs/vim
+ 
+-
+diff --git a/programs/cargo/check.sh b/programs/cargo/check.sh
+new file mode 100644
+index 0000000..f7bda29
+--- /dev/null
++++ b/programs/cargo/check.sh
+@@ -0,0 +1 @@
++cargo --version
+diff --git a/programs/cargo/install.sh b/programs/cargo/install.sh
+new file mode 100644
+index 0000000..daba224
+--- /dev/null
++++ b/programs/cargo/install.sh
+@@ -0,0 +1,11 @@
++# install cargo
++
++curl https://sh.rustup.rs -sSf | sh
++
++# init cargo env in any env file .profile/.base_profile/...
++# set CARGO_HOME for cargo env
++# set target-cpu=native feature to let rustc generate and optimize code for the CPU running the compiler.
++echo 'CARGO_HOME=/root/cargo' >> ~/.profile
++echo 'RUSTFLAGS="-C target-cpu=native"' >> ~/.profile
++source ~/.profile
++
+diff --git a/programs/shadowsocks/check.sh b/programs/shadowsocks/check.sh
+index 9a2860f..8ea9a69 100644
+--- a/programs/shadowsocks/check.sh
++++ b/programs/shadowsocks/check.sh
+@@ -1 +1 @@
+-ls ~/.cargo/bin/sslocal
++ssserver -V
+diff --git a/programs/shadowsocks/install.sh b/programs/shadowsocks/install.sh
+index 8fa33a8..5fb2a3b 100644
+--- a/programs/shadowsocks/install.sh
++++ b/programs/shadowsocks/install.sh
+@@ -1,12 +1,3 @@
+-# install cargo
+-
+-curl https://sh.rustup.rs -sSf | sh
+-
+-# init cargo env in any env file .profile/.base_profile/...
+-# set CARGO_HOME for cargo env
+-# set target-cpu=native feature to let rustc generate and optimize code for the CPU running the compiler.
+-echo 'CARGO_HOME=/root/cargo' >> ~/.profile
+-echo 'RUSTFLAGS="-C target-cpu=native"' >> ~/.profile
+ source ~/.profile
+ 
+ # install shadowsocks-rust
+@@ -16,7 +7,7 @@ cargo install shadowsocks-rust
+ 
+ # install obfs
+ 
+-sudo apt-get install --no-install-recommends build-essential autoconf libtool libssl-dev libpcre3-dev libev-dev asciidoc xmlto automake
++sudo apt-get install --no-install-recommends build-essential autoconf libtool libssl-dev libpcre3-dev libev-dev asciidoc xmlto automake autoconf pkg-config m4 xmlto libev-dev 
+ git clone https://github.com/shadowsocks/simple-obfs.git
+ pip3 install asciidoc
+ cd simple-obfs
+diff --git a/programs/shadowsocks/rely.list b/programs/shadowsocks/rely.list
+new file mode 100644
+index 0000000..a00a4dc
+--- /dev/null
++++ b/programs/shadowsocks/rely.list
+@@ -0,0 +1 @@
++programs/cargo
+diff --git a/programs/ssserver/install.sh b/programs/ssserver/install.sh
+index 5746044..9641015 100644
+--- a/programs/ssserver/install.sh
++++ b/programs/ssserver/install.sh
+@@ -3,6 +3,4 @@ cp $SSPATH/*.service /etc/systemd/system/
+ cp $SSPATH/cfg.json /etc/ss.json 
+ sudo systemctl daemon-reload
+ sudo systemctl enable shadowsocks.service 
+-sudo systemctl enable kcptun.service 
+ sudo systemctl start shadowsocks.service 
+-sudo systemctl start kcptun.service 
+diff --git a/programs/ssserver/rely.list b/programs/ssserver/rely.list
+index 34fb873..df8a7a3 100644
+--- a/programs/ssserver/rely.list
++++ b/programs/ssserver/rely.list
+@@ -1,2 +1 @@
+ programs/shadowsocks
+-programs/kcptun
+diff --git a/programs/ssserver/shadowsocs.service b/programs/ssserver/shadowsocks.service
+similarity index 87%
+rename from programs/ssserver/shadowsocs.service
+rename to programs/ssserver/shadowsocks.service
+index fa20386..aef9a77 100644
+--- a/programs/ssserver/shadowsocs.service
++++ b/programs/ssserver/shadowsocks.service
+@@ -12,7 +12,7 @@ After=network.target
+ [Service]
+ Type=simple
+ CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+-ExecStart=$HOME/.cargo/bin/ssserver --log-without-time -c /etc/ss.json
++ExecStart=/root/.cargo/bin/ssserver --log-without-time -c /etc/ss.json
+ 
+ [Install]
+ WantedBy=multi-user.target

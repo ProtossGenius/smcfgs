@@ -12,7 +12,7 @@ After=network.target
 [Service]
 Type=simple
 CapabilityBoundingSet=CAP_NET_BIND_SERVICE
-ExecStart=$HOME/.cargo/bin/ssserver --log-without-time -c /etc/ss.json
+ExecStart=/root/.cargo/bin/ssserver --log-without-time -c /etc/ss.json
 
 [Install]
 WantedBy=multi-user.target

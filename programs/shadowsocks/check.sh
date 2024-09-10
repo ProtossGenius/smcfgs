@@ -1,1 +1,1 @@
-ls ~/.cargo/bin/sslocal
+ssserver -V

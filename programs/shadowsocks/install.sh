@@ -1,12 +1,3 @@
-# install cargo
-
-curl https://sh.rustup.rs -sSf | sh
-
-# init cargo env in any env file .profile/.base_profile/...
-# set CARGO_HOME for cargo env
-# set target-cpu=native feature to let rustc generate and optimize code for the CPU running the compiler.
-echo 'CARGO_HOME=/root/cargo' >> ~/.profile
-echo 'RUSTFLAGS="-C target-cpu=native"' >> ~/.profile
 source ~/.profile
 
 # install shadowsocks-rust
@@ -16,7 +7,7 @@ cargo install shadowsocks-rust
 
 # install obfs
 
-sudo apt-get install --no-install-recommends build-essential autoconf libtool libssl-dev libpcre3-dev libev-dev asciidoc xmlto automake
+sudo apt-get install --no-install-recommends build-essential autoconf libtool libssl-dev libpcre3-dev libev-dev asciidoc xmlto automake autoconf pkg-config m4 xmlto libev-dev 
 git clone https://github.com/shadowsocks/simple-obfs.git
 pip3 install asciidoc
 cd simple-obfs
