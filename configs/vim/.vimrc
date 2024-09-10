@@ -99,7 +99,6 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 
-
 let g:airline#extensions#ale#enabled = 1
 
 
@@ -108,7 +107,7 @@ let g:airline#extensions#ale#enabled = 1
 "----------------------------------------------------------------------
 let g:ale_linters = {
             \ 'c': ['gcc', 'cppcheck'],
-            \ 'cpp': ['gcc', 'cppcheck'],
+            \ 'cpp': ['g++', 'cppcheck'],
             \ 'python': ['flake8', 'pylint'],
             \ 'lua': ['luac'],
             \ 'go':['golangci-lint', 'golint', 'go vet', 'go build'],
@@ -118,8 +117,8 @@ let g:ale_linters = {
 
 let g:ale_c_gcc_options = '-Wall -Werror -O2 -std=c99'
 " when check cpp20 should add -std=c++2a -fcoroutines
-let g:ale_cpp_gcc_options = '-Wall -Werror -O2'
-let g:ale_cpp_cc_options = '-Wall -Werror -O2'
+let g:ale_cpp_gcc_options = '-Wall -Werror -O2 -std=c++17'
+let g:ale_cpp_cc_options = '-Wall -Werror -O2 -std=c++17'
 let g:ale_c_cppcheck_options = '--inline-suppr '
 let g:ale_cpp_cppcheck_options = '--inline-suppr '
 let g:ale_go_golangci_lint_package  = 1
@@ -127,8 +126,8 @@ let g:ale_go_golangci_lint_package  = 1
 " let g:ale_linters.lua += ['luacheck']
 
 if executable('gcc') == 0 && executable('clang')
-    let g:ale_linters.c += ['clang']
-    let g:ale_linters.cpp += ['clang']
+"    let g:ale_linters.c += ['clang']
+"    let g:ale_linters.cpp += ['clang']
 endif
 
 
@@ -168,8 +167,8 @@ set completeopt=menu,menuone
 set number
 "noremap <c-z> <NOP>
 set tags=./.tags;,.tags
-set tags+=/usr/local/include/tags
 set tags+=/usr/include/tags
+set tags+=/usr/local/include/tags
 "vim-gutentags
 " gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project', ".gradle"]
