@@ -266,7 +266,7 @@ autocmd FileType typescript,typescriptreact nmap <Leader>f :YcmCompleter FixIt<C
 autocmd FileType typescript,typescriptreact nmap <M-g> :YcmCompleter GoToDefinition<CR>
 autocmd FileType typescript,typescriptreact nmap <M-r> :YcmCompleter RefactorRename 
 map <C-s> :w<CR>
-map <C-]> :YcmCompleter GoToDefinition<CR>
+map <C-]> :YcmCompleter GoTo<CR>
 map<M-t> :ter ++noclose<CR>
 
 nnoremap j gj;
