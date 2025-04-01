@@ -203,6 +203,7 @@ noremap <m-p> :LeaderfFunction!<cr>
 noremap <m-n> :LeaderfBuffer<cr>
 noremap <m-m> :LeaderfTag<cr>
 noremap <m-f> :Leaderf rg<cr>
+noremap <c-p> :Files<cr>
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
@@ -460,7 +461,41 @@ au BufWrite *.hpp :Autoformat
 au BufWrite *.cc :Autoformat
 au BufWrite *.cxx :Autoformat
 au BufWrite *.hxx :Autoformat
+au BufWrite *.rs :YcmCompleter Format
 au BufWrite *.ts :YcmCompleter Format
 au BufWrite *.tsx :YcmCompleter Format
 au BufWrite *.css :Autoformat
+
+vmap <C-c> "ay:call CopyA()<CR>
+
+function! IsWSL() 
+  if has('unix')
+    let lines = readfile('/proc/version')
+    if lines[0] =~ 'Microsoft'
+      return 1
+    endif 
+  endif 
+  return 0
+endfunction
+
+function! CopyA()
+  if IsWSL()
+python3 <<EOF
+import vim 
+import subprocess
+content = vim.eval('@a')
+process = subprocess.Popen('clip.exe', stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+process.communicate(content.encode())
+EOF
+  else 
+python3 <<EOF
+import vim 
+import subprocess
+content = vim.eval('@a')
+process = subprocess.Popen(['xclip', '-selection', 'clipboard'] , stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+process.stdin.write(content.encode())
+process.stdin.close()
+EOF
+  endif 
+endfunction
 
