@@ -454,7 +454,7 @@ let g:ycm_use_clangd = 1
 "if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
 "  let g:coc_global_extensions += ['coc-eslint']
 "endif
-au BufWrite *.c :Autoformat
+" au BufWrite *.c :Autoformat
 au BufWrite *.cpp :Autoformat
 au BufWrite *.h :Autoformat
 au BufWrite *.hpp :Autoformat
@@ -498,4 +498,70 @@ process.stdin.close()
 EOF
   endif 
 endfunction
+" ==============================================================================
+" Vim 脚本: ToggleHeaderSource
+" 功能: 在 .h/.hpp 和 .cpp/.c/.cc 文件之间快速切换
+" 绑定: Alt-h
+" ==============================================================================
+
+function! ToggleHeaderSource()
+    let l:current_file = expand('%:p')   " 获取当前文件的完整路径
+    let l:base_name = expand('%:r')      " 获取不带扩展名的文件名 (例如: /path/to/my_file)
+    let l:ext = expand('%:e')            " 获取当前文件的扩展名 (例如: h, cpp)
+
+    let l:target_file = ''               " 目标文件路径
+
+    " 定义可能的头文件和源文件扩展名
+    let l:header_exts = ['h', 'hpp']
+    let l:source_exts = ['cpp', 'c', 'cc']
+
+    " 检查当前文件是头文件还是源文件
+    if index(l:header_exts, l:ext) != -1
+        " 当前是头文件 (.h 或 .hpp)
+        " 尝试查找对应的源文件 (.cpp, .c, .cc)
+        for s_ext in l:source_exts
+            let l:potential_target = l:base_name . '.' . s_ext
+            if filereadable(l:potential_target)
+                let l:target_file = l:potential_target
+                break
+            endif
+        endfor
+    elseif index(l:source_exts, l:ext) != -1
+        " 当前是源文件 (.cpp, .c, .cc)
+        " 尝试查找对应的头文件 (.h, .hpp)
+        for h_ext in l:header_exts
+            let l:potential_target = l:base_name . '.' . h_ext
+            if filereadable(l:potential_target)
+                let l:target_file = l:potential_target
+                break
+            endif
+        endfor
+    else
+        " 当前文件既不是常见的头文件也不是源文件
+        echohl WarningMsg | echo "当前文件不是C/C++头文件或源文件。" | echohl None
+        return
+    endif
+
+    " 如果找到了目标文件，则打开它
+    if !empty(l:target_file)
+        " 使用 'edit' 命令在当前窗口打开文件
+        execute 'edit ' . l:target_file
+    else
+        " 没有找到对应的文件
+        echohl WarningMsg | echo "未找到对应的C/C++文件: " . l:base_name | echohl None
+    endif
+endfunction
+
+" 绑定 Alt-h 到 ToggleHeaderSource 函数
+" nnoremap 表示在普通模式下非递归地映射
+" <M-h> 表示 Alt-h (在某些终端中可能需要配置或使用 <A-h>)
+" <CR> 表示回车，执行命令
+nnoremap <M-h> :call ToggleHeaderSource()<CR>
+
+" 提示: 如果 Alt-h 在您的终端中不起作用，可能是终端模拟器捕获了 Alt 键。
+" 您可以尝试以下替代方案:
+" 1. 检查您的终端设置，看是否可以将 Alt 键配置为发送 Meta 键序列。
+" 2. 尝试使用其他按键组合，例如 F2 或 Ctrl-P (如果未被占用)。
+"    nnoremap <F2> :call ToggleHeaderSource()<CR>
+"    nnoremap <C-p> :call ToggleHeaderSource()<CR>
 
