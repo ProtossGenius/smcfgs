@@ -8,6 +8,6 @@ fq vim +PlugUpdate  < $vim_cfg/vimexit
 cd ~/.vim/plugged/YouCompleteMe 
 fq git pull
 fq git submodule update --init --recursive 
-fq ./install.py  --clang-completer --go-completer --rust-completer   --java-completer   --ts-completer   --ninja  
+fq ./install.py  --clangd-completer --go-completer --rust-completer   --java-completer   --ts-completer   --ninja  
 cp $vim_cfg/.ycm_extra_conf.py ~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py
 vim +GoUpdateBinaries  < $vim_cfg/vimexit 

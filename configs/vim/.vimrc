@@ -84,9 +84,9 @@ map <F7> :NERDTreeToggle<CR>
 "nnoremap <F8> :w<CR>:AsyncRun -mode=term -pos=tab make test<CR>
 "nnoremap <F9> :w<CR>:AsyncRun -mode=term -pos=ta  make debug<CR>
 
-nnoremap <F5> :w<CR>:!make qrun<CR>
+nnoremap <F5> :w<CR>:ter ++noclose ++curwin make qrun<CR>
 nnoremap <F6> :w<CR>:!make
-nnoremap <F8> :w<CR>:!make test<CR>
+nnoremap <F8> :w<CR>::ter ++noclose ++curwin make tests<CR>
 nnoremap <F9> :w<CR>:!make debug<CR>
 nnoremap <F10>   <Esc>:w<CR>g<C-g>
 "----------------------------------------------------------------------
@@ -267,7 +267,8 @@ autocmd FileType typescript,typescriptreact nmap <Leader>f :YcmCompleter FixIt<C
 autocmd FileType typescript,typescriptreact nmap <M-g> :YcmCompleter GoToDefinition<CR>
 autocmd FileType typescript,typescriptreact nmap <M-r> :YcmCompleter RefactorRename 
 map <C-s> :w<CR>
-map <C-]> :YcmCompleter GoTo<CR>
+map <C-]> :YcmCompleter GoTo <CR>
+map <S-f> gF
 map<M-t> :ter ++noclose<CR>
 
 nnoremap j gj;
