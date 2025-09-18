@@ -106,7 +106,7 @@ let g:airline#extensions#ale#enabled = 1
 " linters
 "----------------------------------------------------------------------
 let g:ale_linters = {
-            \ 'c': ['gcc', 'cppcheck'],
+            \ 'c': ['g++', 'cppcheck' ],
             \ 'cpp': ['g++', 'cppcheck'],
             \ 'python': ['flake8', 'pylint'],
             \ 'lua': ['luac'],
@@ -114,13 +114,15 @@ let g:ale_linters = {
             \ 'java': ['javac'],
             \ 'javascript': ['eslint'],
             \ }
-
+autocmd BufNewFile,BufRead *.h set filetype=cpp
+autocmd BufNewFile,BufRead *.fs set filetype=glsl
+autocmd BufNewFile,BufRead *.vs set filetype=glsl
 let g:ale_c_gcc_options = '-Wall -Werror -O2 -std=c99'
 " when check cpp20 should add -std=c++2a -fcoroutines
 let g:ale_cpp_gcc_options = '-Wall -Werror -O2 -std=c++17'
 let g:ale_cpp_cc_options = '-Wall -Werror -O2 -std=c++17'
 let g:ale_c_cppcheck_options = '--inline-suppr '
-let g:ale_cpp_cppcheck_options = '--inline-suppr '
+let g:ale_cpp_cppcheck_options = '--inline-suppr --enable=all'
 let g:ale_go_golangci_lint_package  = 1
 " let g:ale_linters.text = ['textlint', 'write-good', 'languagetool']
 " let g:ale_linters.lua += ['luacheck']
@@ -456,16 +458,36 @@ let g:ycm_use_clangd = 1
 "  let g:coc_global_extensions += ['coc-eslint']
 "endif
 " au BufWrite *.c :Autoformat
-au BufWrite *.cpp :Autoformat
-au BufWrite *.h :Autoformat
-au BufWrite *.hpp :Autoformat
-au BufWrite *.cc :Autoformat
-au BufWrite *.cxx :Autoformat
 au BufWrite *.hxx :Autoformat
 au BufWrite *.rs :YcmCompleter Format
 au BufWrite *.ts :YcmCompleter Format
 au BufWrite *.tsx :YcmCompleter Format
 au BufWrite *.css :Autoformat
+
+" 创建一个函数来处理带条件的格式化
+function! s:ConditionalCppFormat()
+  " 判断文件名是否以 .wasm.cpp 结尾
+  if expand('%') !~ 'wasm\.cpp$'
+    " 如果不是，则执行 Autoformat
+    Autoformat
+  " else
+    " 如果是，你甚至可以在这里输出一条消息来确认跳过了格式化（可选）
+    " echo "Skipping auto-format for WASM C++ file."
+  endif
+endfunction
+
+" 使用 augroup 来确保命令不会被重复定义
+augroup MyCppFormatting
+  " 清除这个组里所有已定义的 autocmd
+  autocmd!
+  " 定义新的 autocmd，在保存 .cpp 文件时调用上面的函数
+  autocmd BufWrite *.cpp call <SID>ConditionalCppFormat()
+  au BufWrite *.h :Autoformat call <SID>ConditionalCppFormat()
+  au BufWrite *.hpp :Autoformat call <SID>ConditionalCppFormat()
+  au BufWrite *.cc :Autoformat call <SID>ConditionalCppFormat()
+  au BufWrite *.cxx :Autoformat call <SID>ConditionalCppFormat()
+
+augroup END
 
 vmap <C-c> "ay:call CopyA()<CR>
 
