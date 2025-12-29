@@ -63,9 +63,10 @@ if s:using_snippets
     Plug 'sirver/ultisnips'
 endif
 Plug 'mattn/emmet-vim'
+Plug 'ProtossGenius/leetcode.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install', 'for': ['markdown', 'vim-plug'] }
+
 call plug#end()
-
-
 
 imap jj <ESC>
 map <F7> :NERDTreeMirror<CR>
@@ -78,17 +79,12 @@ map <F7> :NERDTreeToggle<CR>
 "" let g:asyncrun_bell = 1
 "
 " " 设置 F10 打开/关闭 Quickfix 窗口
-"nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
-"nnoremap <F5> :w<CR>:AsyncRun -mode=term -pos=tab make qrun<CR>
-"nnoremap <F6> :w<CR>:AsyncRun -mode=term -pos=tab make
-"nnoremap <F8> :w<CR>:AsyncRun -mode=term -pos=tab make test<CR>
-"nnoremap <F9> :w<CR>:AsyncRun -mode=term -pos=ta  make debug<CR>
 
-nnoremap <F5> :w<CR>:ter ++noclose ++curwin make qrun<CR>
-nnoremap <F6> :w<CR>:!make
-nnoremap <F8> :w<CR>::ter ++noclose ++curwin make tests<CR>
-nnoremap <F9> :w<CR>:!make debug<CR>
-nnoremap <F10>   <Esc>:w<CR>g<C-g>
+nnoremap <F5> :wa<CR>:ter ++noclose ++curwin make qrun<CR>
+nnoremap <F6> :wa<CR>:ter ++noclose ++curwin make  
+nnoremap <F8> :wa<CR>:ter ++noclose ++curwin make tests<CR>
+nnoremap <F9> :wa<CR>:!make debug<CR>
+nnoremap <F10>   <Esc>:wa<CR>g<C-g>
 "----------------------------------------------------------------------
 " ale
 "----------------------------------------------------------------------
@@ -117,10 +113,10 @@ let g:ale_linters = {
 autocmd BufNewFile,BufRead *.h set filetype=cpp
 autocmd BufNewFile,BufRead *.fs set filetype=glsl
 autocmd BufNewFile,BufRead *.vs set filetype=glsl
-let g:ale_c_gcc_options = '-Wall -Werror -O2 -std=c99'
+let g:ale_c_gcc_options = '-Wall -Werror -O2 -std=c99 -DNDEBUG'
 " when check cpp20 should add -std=c++2a -fcoroutines
-let g:ale_cpp_gcc_options = '-Wall -Werror -O2 -std=c++17'
-let g:ale_cpp_cc_options = '-Wall -Werror -O2 -std=c++17'
+let g:ale_cpp_gcc_options = '-Wall -Werror -O2 -std=c++17 -DNDEBUG -I /usr/local/include'
+let g:ale_cpp_cc_options = '-Wall -Werror -O2 -std=c++17 -DNDEBUG  -I /usr/local/include'
 let g:ale_c_cppcheck_options = '--inline-suppr '
 let g:ale_cpp_cppcheck_options = '--inline-suppr --enable=all'
 let g:ale_go_golangci_lint_package  = 1
@@ -137,15 +133,6 @@ endif
 nmap sp <Plug>(ale_previous_wrap)
 nmap sn <Plug>(ale_next_wrap)
 
-let mapleader = ","
-" "<Leader>s触发/关闭语法检查
-nmap <Leader>s :ALEToggle<CR>
-" "<Leader>d查看错误或警告的详细信息
-nmap <Leader>d :ALEDetail<CR>
-" do vsplit
-nmap <Leader>sv :vsplit<CR>
-nmap <Leader>yg :YcmCompleter GoToDefinition<CR>
-nmap <Leader>ycr :YcmCompleter GoToCallers<CR>
 " screen jump
 let mapleader = "`"
 nmap <Leader><Right> <C-w><Right>
@@ -154,10 +141,11 @@ nmap <Leader><Up> <C-w><Up>
 nmap <Leader><Down> <C-w><Down>
 let g:ycm_global_ycm_extra_conf='~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
-let g:UltiSnipsExpandTrigger="<C-e>"
+let mapleader = ";"
+let g:UltiSnipsExpandTrigger=";;"
 let g:UltiSnipsListSnippets="<C-l>"
-let g:UltiSnipsJumpForwardTrigger="<C-f>"
-let g:UltiSnipsJumpBackwardTrigger="<C-b>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_server_log_level = 'info'
@@ -206,6 +194,7 @@ noremap <m-n> :LeaderfBuffer<cr>
 noremap <m-m> :LeaderfTag<cr>
 noremap <m-f> :Leaderf rg<cr>
 noremap <c-p> :Files<cr>
+noremap <S-f> gF
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
@@ -219,7 +208,15 @@ let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 
 
 
-let mapleader = ","
+let mapleader = ""
+" "<Leader>s触发/关闭语法检查
+"nmap <Leader>s :ALEToggle<CR>
+""<Leader>d查看错误或警告的详细信息
+"nmap <Leader>d :ALEDetail<CR>
+"" do vsplit
+nmap <Leader>sv :vsplit<CR>
+nmap <Leader>yg :YcmCompleter GoToDefinition<CR>
+nmap <Leader>ycr :YcmCompleter GoToCallers<CR>
 au FileType go nmap <Leader>gs <Plug>(go-implements)
 au FileType go nmap <Leader>gi <Plug>(go-info)
 au FileType go nmap <Leader>gr <Plug>(go-run)
@@ -229,7 +226,7 @@ au FileType go nmap <Leader>gdt <Plug>(go-def-split)
 au FileType go nmap <Leader>gds <Plug>(go-def-split)
 au FileType go nmap <Leader>gdt <Plug>(go-def-table)
 au FileType go nmap <Leader>rn <Plug>(go-rename)
-
+map <M-c> :Commands<CR>
 let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
@@ -268,9 +265,9 @@ autocmd FileType typescript,typescriptreact nmap <M-e> :YcmCompleter GoToCallees
 autocmd FileType typescript,typescriptreact nmap <Leader>f :YcmCompleter FixIt<CR>
 autocmd FileType typescript,typescriptreact nmap <M-g> :YcmCompleter GoToDefinition<CR>
 autocmd FileType typescript,typescriptreact nmap <M-r> :YcmCompleter RefactorRename 
+au BufNewFile,BufRead *.fs,*.vs set filetype=glsl
 map <C-s> :w<CR>
-map <C-]> :YcmCompleter GoTo <CR>
-map <S-f> gF
+map <C-]> :YcmCompleter GoTo<CR>
 map<M-t> :ter ++noclose<CR>
 
 nnoremap j gj;
@@ -430,6 +427,7 @@ let g:OmniSharp_highlight_groups = {
             \ 'ExcludedCode': 'NonText'
             \}
 
+" 当文件类型是 typescript 或 html 时，执行该命令
 let g:user_emmet_leader_key=','
 
 " }}}
@@ -463,6 +461,22 @@ au BufWrite *.rs :YcmCompleter Format
 au BufWrite *.ts :YcmCompleter Format
 au BufWrite *.tsx :YcmCompleter Format
 au BufWrite *.css :Autoformat
+" au BufWrite *.c if expand('<afile>') !~ 'wasm' | :Autoformat | endif
+" au BufWrite *.cpp if expand('<afile>') !~ 'wasm' | :Autoformat | endif
+" au BufWrite *.h if expand('<afile>') !~ 'wasm' | :Autoformat | endif
+" au BufWrite *.hpp if expand('<afile>') !~ 'wasm' | :Autoformat | endif
+" au BufWrite *.cc if expand('<afile>') !~ 'wasm' | :Autoformat | endif
+" au BufWrite *.cxx if expand('<afile>') !~ 'wasm' | :Autoformat | endif
+" au BufWrite *.hxx if expand('<afile>') !~ 'wasm' | :Autoformat | endif
+" au BufWrite *.rs :YcmCompleter Format
+" au BufWrite *.ts :YcmCompleter Format
+" au BufWrite *.tsx :YcmCompleter Format
+" au BufWrite *.css :Autoformat
+
+let g:leetcode_china=1
+let g:leetcode_solution_filetype='cpp'    
+let g:leetcode_browser='chrome'
+" let g:leetcode_debug=1
 
 " 创建一个函数来处理带条件的格式化
 function! s:ConditionalCppFormat()
@@ -587,4 +601,44 @@ nnoremap <M-h> :call ToggleHeaderSource()<CR>
 " 2. 尝试使用其他按键组合，例如 F2 或 Ctrl-P (如果未被占用)。
 "    nnoremap <F2> :call ToggleHeaderSource()<CR>
 "    nnoremap <C-p> :call ToggleHeaderSource()<CR>
+
+function! SafeJsonFormatWithLimit()
+    " --- 配置参数 ---
+    let l:min_size = 10         " 最小 10 字节 (防止格式化空文件)
+    let l:max_size = 1048576    " 最大 1MB (1024 * 1024)
+
+    " 获取当前文件大小 (单位: Byte)
+    let l:current_size = getfsize(expand('%'))
+
+    " 判断逻辑：如果在指定范围内且文件已被修改
+    if l:current_size >= l:min_size && l:current_size <= l:max_size
+        if &modified
+            " 预检查 JSON 语法
+            let l:check_cmd = "jq . " . shellescape(expand('%')) . " > /dev/null 2>&1"
+            call system(l:check_cmd)
+
+            if v:shell_error == 0
+                " 语法正确，执行格式化
+                silent %!jq . --indent 4
+                echo "JSON 自动格式化完成 (大小: " . l:current_size . " 字节)"
+            else
+                echohl WarningMsg
+                echo "JSON 语法错误，已取消自动格式化"
+                echohl None
+            endif
+        endif
+    else
+        " 如果文件太大，给出提示以免引起保存卡顿
+        if l:current_size > l:max_size
+            echo "文件过大 (" . (l:current_size / 1024) . " KB)，已跳过自动格式化"
+        endif
+    endif
+endfunction
+
+" 设置自动命令
+augroup JsonAutoFormat
+    autocmd!
+    " 针对 json 文件在保存前执行
+    autocmd BufWritePre *.json call SafeJsonFormatWithLimit()
+augroup END
 

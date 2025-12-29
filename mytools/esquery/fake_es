@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+import json
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+# 模拟的索引数据
+MOCK_DATA = {
+    "users": [
+        {"id": 1, "name": "Alice", "role": "Admin"},
+        {"id": 2, "name": "Bob", "role": "User"}
+    ],
+    "logs": [
+        {"timestamp": "2025-12-29", "level": "INFO", "msg": "System start"}
+    ],
+    "products": [
+        {"id": 101, "name": "Laptop"}
+    ]
+}
+
+class ESMockHandler(BaseHTTPRequestHandler):
+    def _send_json(self, data, status=200):
+        self.send_response(status)
+        self.send_header('Content-Type', 'application/json')
+        self.end_headers()
+        self.wfile.write(json.dumps(data).encode('utf-8'))
+
+    def _send_text(self, text, status=200):
+        self.send_response(status)
+        self.send_header('Content-Type', 'text/plain; charset=UTF-8')
+        self.end_headers()
+        self.wfile.write(text.encode('utf-8'))
+
+    def do_GET(self):
+        # 功能 1: 获取索引列表 (返回纯文本表格)
+        if self.path.startswith('/_cat/indices'):
+            # 构建表头
+            header = f"{'health':<8} {'status':<8} {'index':<15} {'docs.count':<10}\n"
+            rows = []
+            for name, docs in MOCK_DATA.items():
+                row = f"{'green':<8} {'open':<8} {name:<15} {len(docs):<10}"
+                rows.append(row)
+            
+            response_text = header + "\n".join(rows) + "\n"
+            self._send_text(response_text)
+        else:
+            self._send_json({"error": "Endpoint not found"}, 404)
+
+    def do_POST(self):
+        # 功能 2: 查询功能 (保持 JSON 返回，因为搜索结果必须是结构化的)
+        path_parts = self.path.strip('/').split('/')
+        
+        if len(path_parts) >= 2 and path_parts[-1] == "_search":
+            index_name = path_parts[0]
+            if index_name in MOCK_DATA:
+                hits = [{"_source": item} for item in MOCK_DATA[index_name]]
+                response = {
+                    "took": 1,
+                    "timed_out": False,
+                    "hits": {
+                        "total": {"value": len(hits), "relation": "eq"},
+                        "max_score": 1.0,
+                        "hits": hits
+                    }
+                }
+                self._send_json(response)
+            else:
+                self._send_json({"error": f"Index [{index_name}] not found"}, 404)
+        else:
+            self._send_json({"error": "Invalid URI"}, 400)
+
+def run(port=9200):
+    server_address = ('', port)
+    httpd = HTTPServer(server_address, ESMockHandler)
+    print(f"ES Mock Server (Text Mode) is running on http://localhost:{port}")
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        httpd.server_close()
+
+if __name__ == "__main__":
+    run()

@@ -181,5 +181,15 @@ snippet cmap "const map ref" b
 const std::map<$1, $2>&
 endsnippet
 
+snippet hstd "create stdc++.h"
+#include <bits/stdc++.h>
+using namespace std;
+endsnippet 
+
+snippet ifdebug "ifdef ndebug"
+#ifdef NDEBUG
+${0:${VISUAL}}
+#endif
+endsnippet 
 
 

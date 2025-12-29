@@ -1,0 +1,81 @@
+#!/bin/bash
+
+ENV_NAME=$1
+REQ_PATH=$2
+
+if [ -z "$ENV_NAME" ] || [ -z "$REQ_PATH" ]; then
+    echo "Usage: esquery <env> <path>"
+    exit 1
+fi
+
+ENV_FILE="$HOME/.config/esenv/${ENV_NAME}.env"
+if [ ! -f "$ENV_FILE" ]; then
+    echo "Environment file not found: $ENV_FILE"
+    exit 1
+fi
+
+source "$ENV_FILE"
+
+# Determine Method
+METHOD="GET"
+# Simple heuristic: if path contains _search, _doc (and not followed by ID in some cases), etc.
+# We can also check a config file if provided.
+# For now, let's assume we can pass method or it defaults based on path.
+# Better: use a mapping file for commands.
+
+COMMAND_CONFIG=""
+if [ -f "$(dirname "$0")/commands.conf" ]; then
+    COMMAND_CONFIG="$(dirname "$0")/commands.conf"
+elif [ -f "$HOME/.local/share/esquery/commands.conf" ]; then
+    COMMAND_CONFIG="$HOME/.local/share/esquery/commands.conf"
+fi
+
+if [ ! -z "$COMMAND_CONFIG" ]; then
+    # Extract the last part of the path that looks like a command (starts with _)
+    CMD=$(echo "$REQ_PATH" | grep -oP '_[a-z/]+' | tail -n 1)
+    if [ ! -z "$CMD" ]; then
+        M=$(grep "^$CMD " "$COMMAND_CONFIG" | awk '{print $2}')
+        if [ ! -z "$M" ]; then
+            METHOD="$M"
+        fi
+    fi
+fi
+
+# If it's a POST/PUT/DELETE, or if it's _search, we might want a body.
+# For simplicity, if it's not GET, we open vim.
+# Or specifically for _search.
+
+TMP_BODY=$(mktemp /tmp/esquery_XXXXXX.json)
+
+if [[ "$METHOD" == "POST" || "$METHOD" == "PUT" || "$REQ_PATH" == *"_search"* ]]; then
+    # Initialize with a basic template if it's _search
+    if [[ "$REQ_PATH" == *"_search"* ]]; then
+        echo '{"query": {"match_all": {}}}' > "$TMP_BODY"
+    fi
+    
+    vim "$TMP_BODY"
+    
+    # Check if file is empty or unchanged from default (optional)
+    if [ ! -s "$TMP_BODY" ]; then
+        echo "Empty body, skipping..."
+        rm "$TMP_BODY"
+        exit 0
+    fi
+    
+    CURL_OPTS="-X $METHOD -H 'Content-Type: application/json' -d @$TMP_BODY"
+else
+    CURL_OPTS="-X $METHOD"
+fi
+
+AUTH=""
+if [ ! -z "$ES_USER" ] && [ ! -z "$ES_PASS" ]; then
+    AUTH="-u $ES_USER:$ES_PASS"
+fi
+echo ES_HOST
+echo REQ_PATH
+FULL_URL="${ES_HOST%/}/${REQ_PATH#/}"
+
+echo "Requesting: $METHOD $FULL_URL"
+curl -s $AUTH $CURL_OPTS "$FULL_URL" | jq .
+
+rm -f "$TMP_BODY"
