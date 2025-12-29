@@ -1,5 +1,6 @@
 " Set this to 1 to use ultisnips for snippet handling
 let s:using_snippets = 0
+nnoremap <esc>^[ <esc>^[
 set nocompatible
 set encoding=utf-8
 filetype off
